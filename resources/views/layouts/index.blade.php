@@ -10,18 +10,23 @@
     <title>Site</title>
 </head>
 <body>
-    
-    <nav class="nav_bar">
-        <ul class="start">
-            <li>Início</li>
-            <li>Produtos</li>
-        </ul>
-     <H2>Site de venda</H2>
-        <ul class="end">
-            <li>Login</li>
-            <li>Registrar</li>
-        </ul>
-    </nav>
+    <header class="menu">
+        <nav class="nav_bar">
+             <div>    
+                <ul class="start">
+                    <li>Início</li>
+                    <li>Produtos</li>
+                    <li>sobre</li>
+                </ul>
+            </div>       
+            <div>
+                <ul class="end">
+                    <li>Login</li>
+                    <li>Registrar</li>
+                </ul>
+            </div>    
+        </nav>
+    </header>
     @yield('corpo')
 </body>
 </html>
