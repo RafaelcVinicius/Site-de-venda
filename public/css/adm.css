@@ -1,0 +1,259 @@
+
+body{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-color: rgb(253, 253, 253);
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.menu{
+justify-content: center;
+display: flex;
+width: 100vw;
+    background-color: #03202E;
+}
+.nav_bar{
+    display: flex;
+    width: 100%;
+    max-width: 1399px;
+    justify-content: space-between;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    flex-wrap: wrap;
+}
+ul{
+    list-style: none;
+    display: flex;
+}
+li{
+    padding: 5px;
+}
+
+.inicio .baner{
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+.inicio{
+    font-family: Arial, Helvetica, sans-serif;
+    display: grid;
+
+    justify-content: center;
+
+}
+.inicio h3{
+    font-size: 50px;
+}
+.sobre{
+    width: 100vw;
+    width: 100%;
+    max-width: 1399px;
+    display: grid;
+    color: white;
+    margin-top: 5rem;
+
+}
+
+.sobre span{
+    width: 100%;
+    max-width: 1399px;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+}
+
+.end li{
+    padding-right: 55px;
+}
+
+.start li{
+    padding-left: 45px;
+}
+.modu{
+    display: flex;
+    justify-content: center;
+}
+.modulos{
+    width: 100vw;
+    width: 100%;
+    max-width: 1266px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 150px;
+    margin: 0 auto;
+    align-items:center ;
+    margin-top: 11rem;
+    color: rgba(255, 255, 255, 0.747);
+    justify-content: space-around;
+}
+.modulos > div{
+
+    height: 310px;
+    width: 350px;    
+    background-color: rgba(221, 221, 221, 0.514);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-radius:5%;
+}
+.modulos h5{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    color: black;
+}
+
+.modulos  .mo > div{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    }
+
+.modulos  .mo > div span{
+width: 350px;
+height: 80px;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 25px;
+border-bottom-left-radius: 15px;
+border-bottom-right-radius: 15px;
+background: #90d2005d;
+    background: linear-gradient(
+90deg,#90d20031,#00bbff4f);
+}
+
+.modulos .c{
+    background-color: rgba(243, 243, 243, 0.815);
+}
+.c{
+    display: flex;
+    align-items: flex-end; 
+}
+.c  div {
+    width: 350px;
+height: 80px;
+
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 25px;
+border-bottom-left-radius: 15px;
+border-bottom-right-radius: 15px;
+    background: #8fd200;
+    background: linear-gradient(
+90deg,#8fd200,#00baff);
+}
+
+@media (max-width: 1366px) {
+    .modulos{
+        width: 100%;
+        width: 100vw;
+        max-width: 1180px;
+        display: flex;
+        grid-gap: 2px;
+        justify-content: center;
+        margin: 0 auto;
+
+    }
+    .modulos > div{
+        height: 250px;
+        width: 220px; 
+        margin: 15px;
+
+    }
+    .modulos  .mo > div span{
+        width: 220px;
+        height: 60px;
+     }
+     .modu{
+         display: flex;
+         justify-content: center;
+     }
+     .modulos h5{
+        font-size: 23px;
+    }
+     .c  div {
+    width: 220px;
+    height: 60px;
+     }
+
+     .sobre div{
+         display: flex;
+        padding-left: 30px;
+        }
+}
+
+@media (max-width: 759px) {
+    .modulos{
+
+        width: 100%;
+        width: 100vw;
+        max-width: 650px;
+        display: flex;
+
+        justify-content: center;
+        flex-wrap:wrap-reverse;
+    } 
+    .inicio h3{
+        font-size: 25px;
+    }
+.sobre{
+    margin-top: 10px;
+}
+    .baner{
+        background-size: cover;
+    }
+    .modulos > div{
+    margin-top: 15px;
+        width: 100%;
+        width: 100vw;
+        height: 150px;
+        max-width: 550px; 
+        border-radius: 20px;
+        margin: 1rem;
+    }
+    .modulos  .mo > div span{
+        width: 100%;
+        width: 100vw;
+        max-width: 550px; 
+        height: 30px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;   
+        font-size: 16px;
+     }
+     .modu{
+         display: flex;
+         justify-content: center;
+         width: 100%;
+         width: 100vw;
+         max-width: 759px;
+     }
+     .modulos h5{
+        font-size: 18px;
+    }
+     .c  div {
+        width: 100%;
+        width: 150vw;
+        height: 30px;
+        max-width: 550px; 
+     }
+
+     .sobre div{
+         display: flex;
+        padding-left: 10px;
+        }
+        
+}
