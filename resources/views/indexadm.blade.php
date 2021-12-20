@@ -15,17 +15,17 @@
 
     <section class="modu">
         <div class="modulos">
-            <div class="mo">
+            <div class="mo f">
                 <h5>Em Construção</h5>
-                <div><span>Acessar</span></div>
+                <div><span class="f">Acessar</span></div>
             </div>
-            <div class="mo  c">
+            <div class="mo">
                 <h5>Meu Site</h5>
                 <div><span>Acessar</span></div>
             </div>
-            <div class="mo  ">
-                <h5>Em Construção</h5>
-                <div ><span>Acessar</span></div>
+            <div class="mo f">
+                <h5 >Em Construção</h5>
+                <div ><span class="f">Acessar</span></div>
             </div>
         </div>
     </section>

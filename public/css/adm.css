@@ -10,20 +10,25 @@ body{
 }
 
 .menu{
-justify-content: center;
-display: flex;
-width: 100vw;
-    background-color: #03202E;
+    justify-content: center;
+    display: flex;
+    width: 100vw;
+    
 }
-.nav_bar{
+#nav_bar {
     display: flex;
     width: 100%;
-    max-width: 1399px;
     justify-content: space-between;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     flex-wrap: wrap;
+}
+.barra{
+    background-color: #03202E;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
 }
 ul{
     list-style: none;
@@ -101,7 +106,7 @@ li{
 
     height: 310px;
     width: 350px;    
-    background-color: rgba(221, 221, 221, 0.514);
+    background-color: rgba(243, 243, 243, 0.815);
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -115,80 +120,77 @@ li{
     color: black;
 }
 
-.modulos  .mo > div{
+.modulos .mo > div{
     display: flex;
     justify-content: center;
     align-items: flex-end;
     }
 
 .modulos  .mo > div span{
-width: 350px;
-height: 80px;
-display: flex;
-justify-content: center;
-align-items: center;
-font-size: 25px;
-border-bottom-left-radius: 15px;
-border-bottom-right-radius: 15px;
-background: #90d2005d;
-    background: linear-gradient(
-90deg,#90d20031,#00bbff4f);
-}
-
-.modulos .c{
-    background-color: rgba(243, 243, 243, 0.815);
-}
-.c{
-    display: flex;
-    align-items: flex-end; 
-}
-.c  div {
     width: 350px;
-height: 80px;
-
-display: flex;
-justify-content: center;
-align-items: center;
-font-size: 25px;
-border-bottom-left-radius: 15px;
-border-bottom-right-radius: 15px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
     background: #8fd200;
     background: linear-gradient(
-90deg,#8fd200,#00baff);
+    90deg,#8fd200,#00baff);
 }
 
+
+.f{
+    opacity: .6;
+}
+#btn-mobile{
+    display: none;
+}
+
+
+
+
+/* deixar para monitores menores*/
+
+
+
+
 @media (max-width: 1366px) {
+
     .modulos{
         width: 100%;
-        width: 100vw;
+        width: 95vw;
         max-width: 1180px;
         display: flex;
-        grid-gap: 2px;
+        grid-gap: 5%;
         justify-content: center;
-        margin: 0 auto;
-
     }
     .modulos > div{
-        height: 250px;
-        width: 220px; 
-        margin: 15px;
-
+        display: flex;
+        height: 310px;
+        max-width: 350px; 
+        justify-content: space-around;
     }
     .modulos  .mo > div span{
-        width: 220px;
+        width: 100%;
         height: 60px;
+        max-width: 350px;
+        display: flex;
+        
      }
-     .modu{
-         display: flex;
-         justify-content: center;
+     .modulos  .mo  div{
+        width: 100%;
+        max-width: 350px;
+        align-items: flex-end;
      }
+     .inicio h3{
+        font-size: 45px;
+    }
+
      .modulos h5{
         font-size: 23px;
     }
-     .c  div {
-    width: 220px;
-    height: 60px;
-     }
 
      .sobre div{
          display: flex;
@@ -196,44 +198,133 @@ border-bottom-right-radius: 15px;
         }
 }
 
+/*menu hanburg*/
+
+@media (max-width:1130px){
+    #btn-mobile {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        border: none;
+        border-radius: 90%;
+        background-color: #03202E;
+        display: flex;
+        width: 48px;
+        height: 48px; 
+        z-index: 1001;
+        transition: .6s;  
+        justify-content: center;
+        align-items: center; 
+    }
+    .menu{
+        transition: .6s;
+        display: block;
+    }
+    .menu .active .barra {
+        display: flex;
+        position: absolute;
+        transition: .6s;
+        top: -80px;
+        right: 0px;
+        max-width: 350px;
+        height: 109,5vh;
+        margin-left: 0px;
+        z-index: 1000;
+        visibility: visible;
+    }
+    .menu .active .barra  div{
+        margin-top: 180px;
+
+        display: block;
+        height: 100vh;
+        max-width: 350px;
+        margin-left: -30px;
+     }
+     .menu .active ul{
+       display: block;
+   }
+   .menu .active li{
+       padding: 15px;
+       transition: .6s;
+   }
+   .barra{
+    display: block;
+    position: absolute;
+    visibility: hidden;
+    }
+
+    #hamburger{
+position: absolute;
+        border-top: 2px solid;
+        width: 20px;
+        color: white;
+    }
+    #hamburger::after,
+    #hamburger::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: currentColor;
+      margin-top: 5px;
+      transition: 0.3s;
+      position: relative;
+    }
+    #btn-mobile.active #hamburger {
+        border-top-color: transparent;
+      }
+      #btn-mobile.active #hamburger::before {
+        transform: rotate(135deg);
+      }
+      #btn-mobile.active #hamburger::after {
+        transform: rotate(-135deg);
+        top: -7px;
+      }
+}
+
+
+/* deixar para celulares*/
+
 @media (max-width: 759px) {
     .modulos{
-
-        width: 100%;
-        width: 100vw;
-        max-width: 650px;
+        width: 98%;
+        width: 98vw;
+        max-width: 759px;
         display: flex;
-
         justify-content: center;
         flex-wrap:wrap-reverse;
+        margin-top: 20px;
+
     } 
     .inicio h3{
         font-size: 25px;
     }
-.sobre{
+    .sobre{
     margin-top: 10px;
-}
+    }
     .baner{
         background-size: cover;
     }
     .modulos > div{
-    margin-top: 15px;
         width: 100%;
-        width: 100vw;
         height: 150px;
-        max-width: 550px; 
+        max-width: 710px;
         border-radius: 20px;
         margin: 1rem;
     }
     .modulos  .mo > div span{
         width: 100%;
-        width: 100vw;
-        max-width: 550px; 
+        max-width: 710px;
         height: 30px;
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;   
         font-size: 16px;
      }
+          .modulos  .mo  div{
+        width: 100%;
+        max-width: 710px;
+        align-items: flex-end;
+          }
      .modu{
          display: flex;
          justify-content: center;
@@ -244,16 +335,19 @@ border-bottom-right-radius: 15px;
      .modulos h5{
         font-size: 18px;
     }
-     .c  div {
-        width: 100%;
-        width: 150vw;
-        height: 30px;
-        max-width: 550px; 
-     }
+
+
 
      .sobre div{
          display: flex;
         padding-left: 10px;
         }
         
+}
+
+
+@media (max-width: 550px) {
+    .sobre{
+        margin-top: 50px;
+    }
 }
