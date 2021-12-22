@@ -9,7 +9,11 @@
             <div>
                 <h3>Bem vindo(a),
                     a sua loja virtual..</h3>
-            </div>          
+            </div>
+            <div class="user">   
+                <h6>Você está logado como:</h6>
+                <h5>{{session()->get('nome')}}</h5>  
+            </div>
         </div>
     </section>
 

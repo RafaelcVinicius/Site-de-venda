@@ -18,7 +18,7 @@ body{
 #nav_bar {
     display: flex;
     width: 100%;
-    justify-content: space-between;
+    justify-content: center;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
@@ -28,7 +28,26 @@ body{
     background-color: #03202E;
     display: flex;
     width: 100%;
-    justify-content: space-between;
+    height: 60px;
+    justify-content: center;
+
+}
+.start{
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    max-width: 1366px;
+}
+
+.star{
+    display: flex;
+    position: absolute;
+    left: 18%;
+}
+.esp{
+    display: flex;
+    position: absolute;
+    right: 15%;
 }
 ul{
     list-style: none;
@@ -76,6 +95,24 @@ li{
     text-overflow: ellipsis;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 6;
+}
+.user{
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+    width: 300px;
+    height: 100px;
+    flex-wrap: wrap;
+}
+.user h6{
+    margin-top: 5px;
+    font-size: 23px;
+}
+.user h5{
+    font-weight: bold;
+    margin-top: -40px;
+    font-size: 20px;
+    color: cyan;
 }
 
 .end li{
@@ -196,11 +233,47 @@ li{
          display: flex;
         padding-left: 30px;
         }
+
+  
 }
 
 /*menu hanburg*/
 
 @media (max-width:1130px){
+
+    #nav_bar{
+        justify-content: flex-start;
+    }
+    .barra{
+       justify-content: flex-start;
+    
+    }
+    .start{
+        justify-content: flex-start;
+        display: block;
+        width: 100%;
+      
+    }
+    
+    .star{
+        justify-content: flex-start;
+        display: flex;
+        position: absolute;
+        top: 80px;
+        right: 250px;
+    }
+    .esp{
+        display: flex;
+        position: absolute;
+        right: 213px;
+        top: 223px;
+    }
+
+
+
+
+
+
     #btn-mobile {
         position: absolute;
         top: 25px;
@@ -219,6 +292,7 @@ li{
     .menu{
         transition: .6s;
         display: block;
+        justify-content: flex-start;
     }
     .menu .active .barra {
         display: flex;
@@ -227,18 +301,17 @@ li{
         top: -80px;
         right: 0px;
         max-width: 350px;
-        height: 109,5vh;
+        height: 109vh;
         margin-left: 0px;
         z-index: 1000;
         visibility: visible;
     }
     .menu .active .barra  div{
         margin-top: 180px;
-
         display: block;
         height: 100vh;
         max-width: 350px;
-        margin-left: -30px;
+
      }
      .menu .active ul{
        display: block;
@@ -280,6 +353,8 @@ position: absolute;
         transform: rotate(-135deg);
         top: -7px;
       }
+
+      
 }
 
 

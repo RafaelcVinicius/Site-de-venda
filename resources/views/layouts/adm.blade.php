@@ -20,11 +20,15 @@
             <div class="barra">
                 <div>    
                     <ul class="start">
-                        <li>Início</li>
-                        <li>Usuários </li>
-                        <li>Configuração</li>
-                        <li>Sobre</li>
-                        <li>Sair</li>
+                        <div class="star">
+                            <li>Início</li>
+                            <li>Usuários </li>
+                         <li>Configuração</li>
+                        </div>
+                        <Div class="esp">
+                            <li >Sobre</li>
+                            <li>Sair</li>
+                        </Div>
                     </ul>
                 </div>  
             </div> 

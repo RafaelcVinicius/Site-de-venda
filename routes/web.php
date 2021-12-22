@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admloginController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,22 +18,31 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
-
-
+// Logar user 
+ 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+// Logar ADM
+
 Route::prefix('adm')->group(function () {
+
     Route::get('/', function(){
+        if(Session::get('nome') <> null){
         return view('adm.indexadm');
-    });
+        }else{
+            return redirect()->route('view');
+        }
+    })->name('index');
     
-    route::get('/login', [admloginController::class, 'view'])->name('view');;
+    route::get('/login', [admloginController::class, 'view'])->name('view');
     route::post('/login', [admloginController::class, 'logar'])->name('logar');
     
 });
 
+
+//não definido
 
 route::prefix('home')->group(function(){
     Route::get('/', function(){
