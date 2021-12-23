@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- css -->
-    <link rel="stylesheet" href="{{ asset('css/adm.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/adm/adm.css')}}">
 
     <!-- Scripts -->
     <script src="{{ asset('js/adm.js') }}" defer></script>
@@ -21,13 +21,13 @@
                 <div>    
                     <ul class="start">
                         <div class="star">
-                            <li>Início</li>
-                            <li>Usuários </li>
-                         <li>Configuração</li>
+                            <li><a href="#">Início</a></li>
+                            <li><a href="#">Usuários </a></li>
+                         <li><a href="#">Configuração</a></li>
                         </div>
                         <Div class="esp">
-                            <li >Sobre</li>
-                            <li>Sair</li>
+                            <li><a href="#">Sobre</a></li>
+                            <li><a href="{{route('sair')}}">Sair</a></li>
                         </Div>
                     </ul>
                 </div>  

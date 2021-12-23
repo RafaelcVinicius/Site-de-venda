@@ -1,4 +1,4 @@
-@extends('layouts.adm')
+@extends('layouts.adm.adm')
 
 @section('corpo')
 <div class="index">
@@ -25,7 +25,7 @@
             </div>
             <div class="mo">
                 <h5>Meu Site</h5>
-                <div><span>Acessar</span></div>
+                <div><a href="{{route('site')}}"><span>Acessar</span></a></div>
             </div>
             <div class="mo f">
                 <h5 >Em Construção</h5>

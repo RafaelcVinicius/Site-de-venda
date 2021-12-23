@@ -30,6 +30,15 @@ class admloginController extends Controller
         }else{
             echo "CNPJ/CPF errado";
         }
-
     }
+
+    function sair(){
+        Session::forget('nome');
+        return redirect()->route('logar');
+    }
+
+    function site(){
+        return view('adm.admsite');
+    }
+        
 }

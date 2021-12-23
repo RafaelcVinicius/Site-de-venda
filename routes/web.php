@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admloginController;
+use App\Http\Controllers\ControllerProdutos;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
@@ -38,7 +39,10 @@ Route::prefix('adm')->group(function () {
     
     route::get('/login', [admloginController::class, 'view'])->name('view');
     route::post('/login', [admloginController::class, 'logar'])->name('logar');
-    
+    route::get('/logout', [admloginController::class, 'sair'])->name('sair');
+    route::get('/site', [admloginController::class, 'site'])->name('site');
+    route::resource('/produtos', ControllerProdutos::class);
+
 });
 
 

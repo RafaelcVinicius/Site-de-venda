@@ -1,0 +1,291 @@
+
+body{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #F1F1F1;
+    
+}
+
+/* ------------ Menu barra -------------- */
+.menu{
+    justify-content: center;
+    display: flex;
+    width: 100vw;
+    
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+
+#nav_bar {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    flex-wrap: wrap;
+}
+.barra{
+    background-color: #03202E;
+    display: flex;
+    width: 100%;
+    height: 60px;
+    justify-content: center;
+
+}
+.start{
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    max-width: 1366px;
+}
+
+.star{
+    display: flex;
+    position: absolute;
+    left: 18%;
+}
+.esp{
+    display: flex;
+    position: absolute;
+    right: 15%;
+}
+ul{
+    list-style: none;
+    display: flex;
+}
+li{
+    padding: 5px;
+}
+
+#btn-mobile{
+    display: none;
+}
+
+.end li{
+    padding-right: 55px;
+}
+
+.start li{
+    padding-left: 40px;
+}
+
+/* final Menu barra */
+
+/*menu hanburg*/
+
+@media (max-width:1130px){
+
+    #nav_bar{
+        justify-content: flex-start;
+    }
+    .barra{
+       justify-content: flex-start;
+    
+    }
+    .start{
+        justify-content: flex-start;
+        display: block;
+        width: 100%;
+      
+    }
+    
+    .star{
+        justify-content: flex-start;
+        display: flex;
+        position: absolute;
+        top: 80px;
+        right: 250px;
+    }
+    .esp{
+        display: flex;
+        position: absolute;
+        right: 213px;
+        top: 223px;
+    }
+    #btn-mobile {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        border: none;
+        border-radius: 90%;
+        background-color: #03202E;
+        display: flex;
+        width: 48px;
+        height: 48px; 
+        z-index: 1001;
+        transition: .6s;  
+        justify-content: center;
+        align-items: center; 
+    }
+    .menu{
+        transition: .6s;
+        display: block;
+        justify-content: flex-start;
+    }
+    .menu .active .barra {
+        display: flex;
+        position: absolute;
+        transition: .6s;
+        top: -80px;
+        right: 0px;
+        max-width: 350px;
+        height: 109vh;
+        margin-left: 0px;
+        z-index: 1000;
+        visibility: visible;
+    }
+    .menu .active .barra  div{
+        margin-top: 180px;
+        display: block;
+        height: 100vh;
+        max-width: 350px;
+
+     }
+     .menu .active ul{
+       display: block;
+   }
+   .menu .active li{
+       padding: 15px;
+       transition: .6s;
+   }
+   .barra{
+    display: block;
+    position: absolute;
+    visibility: hidden;
+    }
+
+    #hamburger{
+position: absolute;
+        border-top: 2px solid;
+        width: 20px;
+        color: white;
+    }
+    #hamburger::after,
+    #hamburger::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: currentColor;
+      margin-top: 5px;
+      transition: 0.3s;
+      position: relative;
+    }
+    #btn-mobile.active #hamburger {
+        border-top-color: transparent;
+      }
+      #btn-mobile.active #hamburger::before {
+        transform: rotate(135deg);
+      }
+      #btn-mobile.active #hamburger::after {
+        transform: rotate(-135deg);
+        top: -7px;
+      } 
+}
+
+
+/* ------------ final Menu barra ---------------- */
+
+
+.tudo{
+    display: flex;
+    justify-content: center;
+}
+.corpo{
+    max-width: 1300px;
+    width: 100%;
+}
+
+.header{
+    justify-content: space-between;
+    display: flex; 
+    max-width: 1308px;
+    width: 100%;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.header a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 280px;
+    height: 40px;
+    border: solid;
+    border-radius: 25px;
+    background-color: #0095FF
+}
+.header h3{
+    font-size: 35px;
+}
+
+.cadastro{
+    display: flex; 
+    max-width: 1308px;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    flex-direction: column;
+    background-color: white;
+    border: none;
+    box-shadow: 0 0 3px #ccc;;
+}
+#Gravar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 280px;
+    height: 40px;
+    border:none;
+    border-radius: 25px;
+    background-color: #0095FF;
+    font-size: 16px;
+    color: white;
+}
+.btn{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.dados{
+    display: flex;
+    margin-top: 15px;
+    max-width: 1308px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.nome{
+    display: flex;
+    
+    width: 100%;
+
+}
+.input{
+    display: flex;
+    height: 40px;
+    width: 100%;
+    border-radius: 40px;
+}
+input{
+    width: 100%;
+    border-radius: 30px;
+    border: none;
+}
+.vq{
+    justify-content: space-between;
+    display: flex;
+    max-width: 1308px;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
