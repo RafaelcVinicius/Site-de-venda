@@ -18,7 +18,9 @@ class ControllerProdutos extends Controller
 
     public function index()
     {
-       
+        if(Session::get('nome') == null){
+            return redirect()->route('view');
+         }
         $protutos = Produtos::get();
         return view('adm.produtos.admprodutos')->with('protutos', $protutos); 
     }
@@ -30,7 +32,9 @@ class ControllerProdutos extends Controller
      */
     public function create()
     {
-       
+        if(Session::get('nome') == null){
+            return redirect()->route('view');
+         }
        return view('adm.produtos.cadastrarproduto');
     }
 
@@ -42,7 +46,9 @@ class ControllerProdutos extends Controller
      */
     public function store(Request $request)
     {
-        
+        if(Session::get('nome') == null){
+            return redirect()->route('view');
+         }
 
         $dados = new Produtos();
         $dados->nome = $request->input('nome');
@@ -92,10 +98,10 @@ class ControllerProdutos extends Controller
      */
     public function update(Request $request, $id)
     {
-        if(Session::get('nome') == null){
+         if(Session::get('nome') == null){
             return redirect()->route('view');
          }
-         
+
         $produto = Produtos::find($id);
         $produto->nome = $request->input('nome');
         $produto->valor = $request->input('valor');
@@ -114,8 +120,15 @@ class ControllerProdutos extends Controller
      */
     public function destroy($id)
     {
-        if(Session::get('nome') == null){
+          if(Session::get('nome') == null){
             return redirect()->route('view');
          }
+
+
+         $del = Produtos::find($id);
+         $del->delete();
+
+         return redirect()->route('produtos.index');
+
     }
 }

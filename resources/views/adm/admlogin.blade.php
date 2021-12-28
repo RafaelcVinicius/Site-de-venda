@@ -17,11 +17,11 @@
         <section class="section-login">
             <div class="login-form">
                 <H3>Login</H3>
-                <form autoComplete="off" action="{{route('logar')}}"  method="POST">
+                <form action="{{route('logar')}}"  method="POST">
                     @csrf
                         <fieldset class="field">
                             <legend>CNPJ / CPF</legend>
-                            <input type="number" name="cnpjcpf">
+                            <input type="text" name="cnpjcpf">
                         </fieldset>
                         <fieldset class="field " >
                             <legend>Senha</legend>

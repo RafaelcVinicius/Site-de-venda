@@ -12,21 +12,30 @@
         </div>
         <div class="grid-produtos">
             @foreach ($protutos as $protuto)
-            <a href="{{route('produtos.edit', $protuto['id'])}}">
-                <div class="produto">
-                    <Div class="img">img</Div>
-                    <div class="dados">
-                        <div class="info">
-                            <div class="nome">{{$protuto['nome']}}</div>
-                            <div class="id"> cód. {{$protuto['id']}}</div>                        
-                        </div>
-                        <div class="valores">
-                        <Div class="qtde"> Qtde: {{$protuto['qtde']}} </Div>
-                        <Div class="valor"> R$ {{$protuto['valor']}} </Div>
+            <article class="article-produto">
+                <a href="{{route('produtos.edit', $protuto['id'])}}">
+                    <div class="produto">
+                        <Div class="img">img</Div>
+                        <div class="dados">
+                            <div class="info">
+                                <div class="nome">{{$protuto['nome']}}</div>
+                                <div class="id"> cód. {{$protuto['id']}}</div>                        
+                            </div>
+                            <div class="valores">
+                            <Div class="qtde"> Qtde: {{$protuto['qtde']}} </Div>
+                            <Div class="valor"> R$ {{$protuto['valor']}} </Div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
+                <Div class="btn-delete">
+                    <form action="{{route('produtos.destroy', $protuto['id'])}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">Deletar</button>
+                    </form>
+                </Div>
+            </article>
            @endforeach
         </div>
     </Div>

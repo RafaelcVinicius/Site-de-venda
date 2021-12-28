@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Session;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('site.site');
 });
 // Logar user 
  
