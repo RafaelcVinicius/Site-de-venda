@@ -42,7 +42,6 @@ Route::prefix('adm')->group(function () {
     route::get('/logout', [admloginController::class, 'sair'])->name('sair');
     route::get('/site', [admloginController::class, 'site'])->name('site');
     route::resource('/produtos', ControllerProdutos::class);
-
 });
 
 

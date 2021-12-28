@@ -80,7 +80,7 @@ legend{
     background: none;
     border-radius: 45px;
     color: white;
-    font-size: 20px;
+    font-size: 16px;
     -webkit-transition-delay: 9999s;
 }
 button{
@@ -95,4 +95,15 @@ button{
     border-radius: 45px;
     font-size: 16px;
     color: white;
+}
+input{
+    outline-color: invert;
+    outline-style: none;
+    outline-width: medium;
+    -moz-outline-style: none;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 0;
+    border: none;
 }

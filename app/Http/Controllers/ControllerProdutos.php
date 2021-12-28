@@ -2,18 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Produtos;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
 class ControllerProdutos extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
-        return view('adm.produtos.admprodutos');
+       
+        $protutos = Produtos::get();
+        return view('adm.produtos.admprodutos')->with('protutos', $protutos); 
     }
 
     /**
@@ -23,6 +30,7 @@ class ControllerProdutos extends Controller
      */
     public function create()
     {
+       
        return view('adm.produtos.cadastrarproduto');
     }
 
@@ -34,7 +42,15 @@ class ControllerProdutos extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+
+        $dados = new Produtos();
+        $dados->nome = $request->input('nome');
+        $dados->valor = $request->input('valor');
+        $dados->qtde = $request->input('qtde');
+        $dados->save();
+
+        return redirect()->route('produtos.index');
     }
 
     /**
@@ -45,6 +61,9 @@ class ControllerProdutos extends Controller
      */
     public function show($id)
     {
+        if(Session::get('nome') == null){
+            return redirect()->route('view');
+         }
         //
     }
 
@@ -56,7 +75,12 @@ class ControllerProdutos extends Controller
      */
     public function edit($id)
     {
-        //
+        if(Session::get('nome') == null){
+            return redirect()->route('view');
+         }
+        $produto = Produtos::where('id', $id)->first();
+
+        return view('adm.produtos.editarproduto')->with('produto', $produto);
     }
 
     /**
@@ -68,7 +92,18 @@ class ControllerProdutos extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if(Session::get('nome') == null){
+            return redirect()->route('view');
+         }
+         
+        $produto = Produtos::find($id);
+        $produto->nome = $request->input('nome');
+        $produto->valor = $request->input('valor');
+        $produto->qtde = $request->input('qtde');
+
+        $produto->save();
+
+       return redirect()->route('produtos.index');
     }
 
     /**
@@ -79,6 +114,8 @@ class ControllerProdutos extends Controller
      */
     public function destroy($id)
     {
-        //
+        if(Session::get('nome') == null){
+            return redirect()->route('view');
+         }
     }
 }

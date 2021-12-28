@@ -3,12 +3,12 @@
 <Div class="tudo">
     <div class="corpo">
         <Div class="header">
-            <H3>Produtos</H3>
+            <H3>Produto</H3>
         </Div>
         <div class="cadastro">
-            <form action="{{route('produtos.store')}}" method="post">
+            <form action="{{route('produtos.update', $produto['id'])}}" method="POST">
                 @csrf
-
+                @method('PATCH')
                 <div class="btn">
                     <button type="submit" id="Gravar">Gravar</button>
                 </div> 
@@ -18,19 +18,19 @@
                             <div class="nome">  
                                 <fieldset class="input">
                                     <legend><label for="nome">Nome</label></legend>  
-                                    <input type="text" name="nome" id="nome">
+                                    <input type="text" name="nome" value="{{$produto['nome']}}" id="nome">
                                 </fieldset>
                             </div>
                     
                          <section class="vq">  
                             <fieldset class="input ">
                                 <legend><label for="qtde">Quantidade</label></legend>
-                                <input type="number" name="qtde" id="Quantidade">
+                                <input type="number" value="{{$produto['qtde']}}" name="qtde" id="Quantidade">
                             </fieldset>
 
                             <fieldset class="input">
                                 <legend><label for="valor">Valor</label></legend>
-                                <input type="number" name="valor" id="valor">
+                                <input type="number" value="{{$produto['valor']}}" name="valor" id="valor">
                             </fieldset> 
                         </section> 
                     </div>
