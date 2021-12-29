@@ -11,25 +11,25 @@
             
         </div>
         <div class="grid-produtos">
-            @foreach ($protutos as $protuto)
+            @foreach ($produtos as $produto)
             <article class="article-produto">
-                <a href="{{route('produtos.edit', $protuto['id'])}}">
+                <a href="{{route('produtos.edit', $produto['id'])}}">
                     <div class="produto">
                         <Div class="img">img</Div>
                         <div class="dados">
                             <div class="info">
-                                <div class="nome">{{$protuto['nome']}}</div>
-                                <div class="id"> cód. {{$protuto['id']}}</div>                        
+                                <div class="nome">{{$produto['nome']}}</div>
+                                <div class="id"> cód. {{$produto['id']}}</div>                        
                             </div>
                             <div class="valores">
-                            <Div class="qtde"> Qtde: {{$protuto['qtde']}} </Div>
-                            <Div class="valor"> R$ {{$protuto['valor']}} </Div>
+                            <Div class="qtde"> Qtde: {{$produto['qtde']}} </Div>
+                            <Div class="valor"> R$ {{$produto['valor']}} </Div>
                             </div>
                         </div>
                     </div>
                 </a>
                 <Div class="btn-delete">
-                    <form action="{{route('produtos.destroy', $protuto['id'])}}" method="POST">
+                    <form action="{{route('produtos.destroy', $produto['id'])}}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit">Deletar</button>

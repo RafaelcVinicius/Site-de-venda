@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $protutos = Produtos::get();
-        return view('site.site')->with('protutos', $protutos);
+        $produtos = Produtos::get();
+        return view('site.site')->with('produtos', $produtos);
     }
 }

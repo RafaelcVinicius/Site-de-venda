@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\admloginController;
 use App\Http\Controllers\ControllerProdutos;
+use App\Http\Controllers\ProdutositeController;
+use App\Models\Produtos;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
@@ -24,13 +26,16 @@ Auth::routes();
 
 route::prefix('/')->group(function () {
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     Route::get('/home', function(){
         return redirect()->route('home');
     });
 
-    
+    route::prefix('produto')->group(function () {
+        route::get('/', [ProdutositeController::class, 'index'])->name('produtos');
+        route::get('/{nome}', [ProdutositeController::class, 'produto'])->name('produto');
+    });
 });
 
 

@@ -56,16 +56,21 @@
             </Div>
             <nav class="nav">
                 <ul class="nav-ul">
-                    <li>Início</li>
-                    <li>Produtos</li>
-                    <li>Sobre</li>
-                    <li>Contatos</li>
+                    <li><a href="{{route('home')}}">Início</a></li>
+                    <li><a href="{{route('produtos')}}">Produtos</a></li>
+                    <li><a href="">Sobre</a></li>
+                    <li><a href="">Contatos</a></li>
                 </ul>       
             </nav>
         </header>
     </Div>
     <div class="layout">
         @yield('corpo')
+    </div>
+    <div class="rodape">
+        <footer>
+
+        </footer>
     </div>
 </body>
 </html>

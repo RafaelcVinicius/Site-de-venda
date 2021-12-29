@@ -10,21 +10,21 @@
         </div>
         <section>
             <div class="grid-produtos">
-                @foreach ($protutos as $protuto)
+                @foreach ($produtos as $produto)
                 <article class="article-produto">
-                    <a href="{{route('produtos.edit', $protuto['id'])}}">
+                    <a href="{{route('produto', $produto['nome'])}}">
                         <div class="produto">
                             <Div class="img">img</Div>
                             <div class="dados">
                                 <div class="info">
-                                    <div class="nome">{{$protuto['nome']}}</div>  
+                                    <div class="nome">{{$produto['nome']}}</div>  
                                                         
                                 </div>
                                 <div class="aval">
                                         
                                 </div> 
                                 <div class="valores">
-                                <Div class="valor"> R$ {{$protuto['valor']}} </Div>
+                                <Div class="valor"> R$ {{$produto['valor']}} </Div>
                                 </div>
                             </div>
                         </div>
@@ -34,10 +34,4 @@
             </div>
         </section>
     </div>
-    <div class="rodape">
-        <footer>
-            
-        </footer>
-    </div>
-
 @endsection

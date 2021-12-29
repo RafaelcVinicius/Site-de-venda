@@ -21,8 +21,8 @@ class ControllerProdutos extends Controller
         if(Session::get('nome') == null){
             return redirect()->route('view');
          }
-        $protutos = Produtos::get();
-        return view('adm.produtos.admprodutos')->with('protutos', $protutos); 
+        $produtos = Produtos::get();
+        return view('adm.produtos.admprodutos')->with('produtos', $produtos); 
     }
 
     /**
