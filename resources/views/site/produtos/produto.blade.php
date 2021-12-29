@@ -25,7 +25,7 @@
             </div>
             <div class="aval">
                 <span>Sua avaliação sobre o produto</span>
-                <div class="svg">
+                <div class="svg-2">
                     <i onclick="avaliarProduto(this)" data-marcado="0"><svg viewBox="0 0 230 219" height="30px" width="30px"><g id="Camada_x0020_1"><polygon points="115,176 186,219 167,138 230,83 147,76 115,0 83,76 0,83 63,138 44,219 "></polygon></g></svg></i>               
                     <i onclick="avaliarProduto(this)" data-marcado="0"><svg viewBox="0 0 230 219" height="30px" width="30px"><g id="Camada_x0020_1"><polygon points="115,176 186,219 167,138 230,83 147,76 115,0 83,76 0,83 63,138 44,219 "></polygon></g></svg></i>
                     <i onclick="avaliarProduto(this)" data-marcado="0"><svg viewBox="0 0 230 219" height="30px" width="30px"><g id="Camada_x0020_1"><polygon points="115,176 186,219 167,138 230,83 147,76 115,0 83,76 0,83 63,138 44,219 "></polygon></g></svg></i>
