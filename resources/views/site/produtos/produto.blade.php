@@ -10,12 +10,14 @@
                 </div>
                 <div class="dados">
                     <div class="nome">{{$produto['nome']}}</div>
-                    <div class="valor">{{$produto['valor']}}</div>
-                    <div class="qtde-disponivel">{{$produto['qtde']}}</div>
+                    <div class="v-q">
+                        <div class="valor">R$ {{$produto['valor']}}</div>
+                        <div class="qtde-disponivel">Qtde Disponível: {{$produto['qtde']}}</div>
+                    </div>
                     <form class="form" action="" method="post">
                         <input type="hidden" name="id_produto" value="{{$produto['id']}}">
                         <input type="hidden" name="valor_un" value="{{$produto['valor']}}">
-                        <div class="qtde"> <input type="number" name="qtde" id="qtde" min="1" max="{{$produto['qtde']}}"></div>
+                        <div class="qtde"><label for="qtde">Qtde:</label> <input type="number" name="qtde" id="qtde" min="1" max="{{$produto['qtde']}}"></div>
                         <div class="btn-car"><button type="submit">Adicionar ao carrinho</button></div>
                         <div class="btn-comprar"><button type="submit">Comprar</button></div>
                     </form>

@@ -10,7 +10,6 @@ section{
     width: 100%;
     display: flex;
     justify-content: center;
-    background-color: blue;
 }
 .produto{
     display: flex;
@@ -21,6 +20,8 @@ section{
     padding: 35px;
     justify-content: center;
     flex-wrap: wrap;
+    box-shadow: 0 0 10px #ccc;
+    border-radius: 45px;
 }
 .up{
     display: flex;
@@ -34,16 +35,19 @@ section{
     height: 100%;
     max-height: 600px;
     position: relative;
-    background-color: gray;
 }
+
+
+/*dados*/
+
+
 .dados{
     display: flex;
     max-width: 400px;
-    height: 500px;
+    height: 400px;
     width: 100%;
     align-items: center;
     justify-content: center;
-    background-color: green;
     flex-wrap: wrap;
 }
 .nome{
@@ -52,15 +56,18 @@ section{
     width: 100%;
     height: 30px;
     justify-content: start;
-    font-size: 20px;
+    font-size: 25px;
+    font-weight: bolder;
+    opacity: 0.7;
 }
 .valor{
     display: flex;
-
+    font-weight: bolder;
     max-width: 400px;
     width: 100%;
     justify-content: start;
     font-size: 30px;
+    color: #97CA45
 }
 .qtde-disponivel{
     display: flex;
@@ -68,47 +75,98 @@ section{
     width: 100%;
     justify-content: start;
     font-size: 30px;
+    font-size: 13px;
+    opacity: 0.9;
 }
+.v-q{
+    display: flex;
+    max-width: 400px;
+    width: 100%;
+    justify-content: start;
+    flex-wrap: wrap;
+}
+
+
+
+
+/*formulario*/
 .form{
     display: flex;
     max-width: 400px;
     width: 100%;
     justify-content: start;
-    height: 150px;
+    height: 200px;
     flex-wrap: wrap;
-    background-color: grey;
 }
 .form .qtde{
     display: flex;
-    width: 350px;
-    height: 30px;
+    width: 300px;
+    height: 40px;
     justify-content: start;
     font-size: 16px;
+    flex-wrap: wrap;
+    opacity: 0.8;
 }
 .form .qtde input{
-    width: 350px;
-    height: 30px;
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.699);
+
 }
 .btn-car{
     display: flex;
-    width: 350px;
+    width: 300px;
     height: 50px;
     justify-content: start;
+    margin-top: 15px;
 }
 .btn-car button{
-    width: 350px;
+    width: 300px;
     height: 50px;
+    background-color: rgb(204, 49, 49);
+    background:  linear-gradient(
+        90deg,rgb(185, 46, 46),rgb(190, 10, 10));
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+}
+.btn-car button:hover{
+    background:  linear-gradient(
+        90deg,rgb(177, 49, 49),rgb(151, 9, 9));
 }
 .btn-comprar{
     display: flex;
-    width: 350px;
+    width: 300px;
     height: 50px;
     justify-content: start;
+    margin-top: 15px;
 }
 .btn-comprar button{
-    width: 350px;
+    width: 300px;
     height: 50px;
+    background-color: #62ff07;
+    background:  linear-gradient(
+        90deg,#70db32,#63d123);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+
 }
+.btn-comprar button:hover{
+    background-color: #62ff07;
+    background:  linear-gradient(
+        90deg,#65e41c,#47ad0c);
+}
+
+
+
+
+/* avaliar*/
 .aval{
     max-width: 1300px;
     width: 100%;
