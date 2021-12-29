@@ -38,6 +38,10 @@ class admloginController extends Controller
     }
 
     function site(){
+        if(Session::get('nome') == null){
+            return redirect()->route('view');
+         }
+
         return view('adm.admsite');
     }
         

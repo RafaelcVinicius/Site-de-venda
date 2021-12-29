@@ -202,7 +202,6 @@ li{
     90deg,#8fd200,#00baff);
 }
 
-
 .f{
     opacity: .6;
 }
@@ -239,12 +238,14 @@ li{
         height: 60px;
         max-width: 350px;
         display: flex;
-        
      }
      .modulos  .mo  div{
         width: 100%;
         max-width: 350px;
         align-items: flex-end;
+     }    
+     .modulos  .mo  div a{
+         width: 100%;
      }
      .inicio h3{
         font-size: 45px;

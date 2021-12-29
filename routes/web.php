@@ -16,16 +16,29 @@ use Illuminate\Support\Facades\Session;
 |
 */
 
-Route::get('/', function () {
-    return view('site.site');
-});
+
 // Logar user 
  
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Logar ADM
+route::prefix('/')->group(function () {
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    Route::get('/home', function(){
+        return redirect()->route('home');
+    });
+
+    
+});
+
+
+
+
+
+
+// ------------- Logar ADM --------------
 
 Route::prefix('adm')->group(function () {
 
@@ -45,10 +58,3 @@ Route::prefix('adm')->group(function () {
 });
 
 
-//não definido
-
-route::prefix('home')->group(function(){
-    Route::get('/', function(){
-        return view('');
-    });
-});

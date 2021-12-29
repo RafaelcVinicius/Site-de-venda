@@ -14,7 +14,6 @@
     <title>Site</title>
 </head>
 <body>
-   
     <header class="menu">
         <nav id="nav_bar">
             <div class="barra">
