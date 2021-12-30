@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Imagemproduto;
 use App\Models\Produtos;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
@@ -50,12 +51,19 @@ class ControllerProdutos extends Controller
             return redirect()->route('view');
          }
 
-        $dados = new Produtos();
-        $dados->nome = $request->input('nome');
-        $dados->valor = $request->input('valor');
-        $dados->qtde = $request->input('qtde');
-        $dados->save();
+        $Produtos = new Produtos();
+        $Produtos->nome = $request->input('nome');
+        $Produtos->valor = $request->input('valor');
+        $Produtos->qtde = $request->input('qtde');
+        $Produtos->save();
 
+         $file = $request->allFiles()['img'];
+         
+         $imagem = new imagemproduto();
+         $imagem->id_produto = $Produtos->id;
+         $imagem->path = $file->store('produtos');
+         $imagem->save();
+         
         return redirect()->route('produtos.index');
     }
 

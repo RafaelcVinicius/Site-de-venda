@@ -1,6 +1,8 @@
 @extends('layouts.adm.admsite')
 
 @section('corpo')
+
+
 <Div class="tudo">
     <Div class="corpo">
         <Div class="header">
@@ -15,7 +17,13 @@
             <article class="article-produto">
                 <a href="{{route('produtos.edit', $produto['id'])}}">
                     <div class="produto">
-                        <Div class="img">img</Div>
+                        <Div class="img">
+                            @if (empty($produto->imagem['path']) )
+                                img
+                            @else
+                                <img src="{{ asset('storage/'.$produto->imagem['path'])}}" alt="">
+                            @endif
+                        </Div>
                         <div class="dados">
                             <div class="info">
                                 <div class="nome">{{$produto['nome']}}</div>
