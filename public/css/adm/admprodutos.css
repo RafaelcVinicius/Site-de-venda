@@ -218,7 +218,7 @@ position: absolute;
     justify-content: center;
 }
 .corpo{
-    max-width: 1300px;
+    max-width: 1308px;
     width: 100%;
     margin: 20px;
 }
@@ -226,8 +226,8 @@ position: absolute;
 .header{
     justify-content: space-between;
     display: flex; 
-    max-width: 1308px;
-    width: 50%;
+    max-width: 1320px;
+    width: 100%;
     margin-top: 50px;
     flex-wrap: wrap;
     align-items: center;
@@ -295,11 +295,12 @@ position: absolute;
     opacity: 0.9;
 }
 .section-2{
+    display: flex;
     max-width:600px;
     width: 100%;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    justify-content: start;
+    align-items: flex-start;
     margin-top: 10px;
     margin-left: 10px;
     flex-direction: column;
