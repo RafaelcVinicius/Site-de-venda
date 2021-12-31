@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="{{asset('css/adm/editproduto.css')}}">
 @extends('layouts.adm.admsite')
 @section('corpo')
 <Div class="tudo">
@@ -6,7 +7,7 @@
             <H3>Produto</H3>
         </Div>
         <div class="cadastro">
-            <form class="form" action="{{route('produtos.update', $produto['id'])}}" method="POST">
+            <form class="form" action="{{route('produtos.update', $produto['id'])}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PATCH')
                 <section class="btn-form">
@@ -43,6 +44,15 @@
                         <legend><label for="img">Imagem</label></legend>
                         <input type="file" name="img" id="img">
                     </fieldset> 
+                    <section class="img-produtos">
+                        <Div class="img-produto">
+                            @if (empty($produto->imagem['path']) )
+                                img
+                            @else
+                                <img src="{{ asset('storage/'.$produto->imagem['path'])}}" alt="">
+                            @endif
+                        </Div>
+                    </section>
                 </section>
             </section>
             </form>

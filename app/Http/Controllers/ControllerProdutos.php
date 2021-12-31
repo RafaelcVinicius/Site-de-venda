@@ -6,6 +6,7 @@ use App\Models\Imagemproduto;
 use App\Models\Produtos;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ControllerProdutos extends Controller
 {
@@ -114,8 +115,29 @@ class ControllerProdutos extends Controller
         $produto->nome = $request->input('nome');
         $produto->valor = $request->input('valor');
         $produto->qtde = $request->input('qtde');
-
         $produto->save();
+
+        if(!empty($request->input('img'))){
+
+            
+            $img = Imagemproduto::where('id_produto', '=', $id)->first();
+           /* if()
+            Storage::disk('public')->delete($img['path']);
+*/
+
+            $imagemdel = Imagemproduto::find($img['id']);
+            $imagemdel->delete();
+
+
+            $file = $request->allFiles()['img'];
+         
+            $imagem = new imagemproduto();
+            $imagem->id_produto = $produto->id;
+            $imagem->path = $file->store('produtos');
+            $imagem->save();
+       
+        }
+       
 
        return redirect()->route('produtos.index');
     }

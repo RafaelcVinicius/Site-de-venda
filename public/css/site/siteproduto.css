@@ -1,8 +1,10 @@
 .layout{
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 section{
     margin: 10px;
@@ -34,9 +36,30 @@ section{
     width: 100%;
     height: 100%;
     max-height: 600px;
-    position: relative;
-}
+    display: flex;
+    justify-content: center;
 
+
+}
+.img-produto{
+    max-width: 500px;
+    max-height: 600px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.068);
+    border-radius: 8px;
+}
+.img-produto img{
+    max-width: 500px;
+    max-height: 500px;
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+}
 
 /*dados*/
 
@@ -175,6 +198,7 @@ section{
     height: 100px;
     display: flex;
     flex-wrap: wrap;
+    margin-top: 50px;
 }
 .aval span{
     font-size: 18px;

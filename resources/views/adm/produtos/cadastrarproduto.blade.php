@@ -42,7 +42,7 @@
                             <legend><label for="img">Imagem</label></legend>
                             <input type="file" name="img" id="img">
                         </fieldset> 
-                    </section>
+                    </section>                    
                 </section>
             </form>
 

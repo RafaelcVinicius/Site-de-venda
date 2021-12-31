@@ -6,7 +6,13 @@
         <div class="produto">
             <div class="up">
                 <div class="foto">
-
+                    <div class="img-produto">
+                        @if (empty($produto->imagem['path']) )
+                              img
+                        @else
+                            <img src="{{ asset('storage/'.$produto->imagem['path'])}}" alt="">
+                        @endif
+                    </div>
                 </div>
                 <div class="dados">
                     <div class="nome">{{$produto['nome']}}</div>

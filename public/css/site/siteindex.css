@@ -102,7 +102,7 @@
 .article-produto:hover{
     box-shadow: 10px 10px 1px #ccc;
 }
-.img{
+.img-produto{
     width: 190px;
     height: 130px;
     background-color: rgb(245, 245, 245);
@@ -111,6 +111,25 @@
     align-items: center;
     margin: 8px;
     color: rgba(7, 7, 7, 0.562);
+}
+.img-produto{
+    width: 190px;
+    height: 130px;
+    background-color: rgb(245, 245, 245);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8px;
+    color: rgba(7, 7, 7, 0.562);
+    border-radius: 3px;
+}
+.img-produto img{
+    width: 180px;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
 
 }
 .dados{

@@ -1,0 +1,24 @@
+
+.img-produtos{
+    margin: 15px;
+    max-width: 560px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.img-produto{
+    display: flex;
+    margin-right: 10px;
+    border-radius: 5px;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(207, 206, 206);
+}
+.img-produto img{
+    display: flex;
+    margin-right: 10px;
+    border-radius: 5px;
+    width: 100px;
+    height: 100px;
+}
