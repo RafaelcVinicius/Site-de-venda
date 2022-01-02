@@ -58,13 +58,16 @@ class ControllerProdutos extends Controller
         $Produtos->qtde = $request->input('qtde');
         $Produtos->save();
 
-         $file = $request->allFiles()['img'];
-         
-         $imagem = new imagemproduto();
-         $imagem->id_produto = $Produtos->id;
-         $imagem->path = $file->store('produtos');
-         $imagem->save();
-         
+        if(isset($request->img)){
+
+            $file = $request->allFiles()['img'];
+            
+            $imagem = new imagemproduto();
+            $imagem->id_produto = $Produtos->id;
+            $imagem->path = $file->store('produtos');
+            $imagem->save();
+        }
+
         return redirect()->route('produtos.index');
     }
 
@@ -117,13 +120,33 @@ class ControllerProdutos extends Controller
         $produto->qtde = $request->input('qtde');
         $produto->save();
 
-        if(!empty($request->input('img'))){
+           if(isset($request->img)){ 
 
+             if(imagemproduto::where('id_produto', '=', $id)->count() == 1 ){
+
+                    $imagem = imagemproduto::where('id_produto', '=', $id)->first();
+                    
+                    Storage::disk('public')->delete($imagem['path']);
+
+                    $path = $request->file('img')->store('produtos', 'public');
             
-            $img = Imagemproduto::where('id_produto', '=', $id)->first();
-           /* if()
+                    $imagem->path = $path;
+                    $imagem->save();
+                }else{
+
+                    $path = $request->file('img')->store('produtos', 'public');
+
+                    $imagem = new imagemproduto();
+                    $imagem->id_produto = $produto->id;
+                    $imagem->path =  $path;
+                    $imagem->save();
+                }
+           }
+            
+           /* $img = Imagemproduto::where('id_produto', '=', $id)->first();
+            if()
             Storage::disk('public')->delete($img['path']);
-*/
+
 
             $imagemdel = Imagemproduto::find($img['id']);
             $imagemdel->delete();
@@ -134,12 +157,10 @@ class ControllerProdutos extends Controller
             $imagem = new imagemproduto();
             $imagem->id_produto = $produto->id;
             $imagem->path = $file->store('produtos');
-            $imagem->save();
-       
-        }
+            $imagem->save();*/
        
 
-       return redirect()->route('produtos.index');
+        return redirect()->route('produtos.index');
     }
 
     /**
