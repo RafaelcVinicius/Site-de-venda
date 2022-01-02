@@ -20,7 +20,7 @@
                         <div class="valor">R$ {{$produto['valor']}}</div>
                         <div class="qtde-disponivel">Qtde Disponível: {{$produto['qtde']}}</div>
                     </div>
-                    <form class="form" action="" method="post">
+                    <form class="form" action="{{route('carrinho.index')}}" method="get">
                         <input type="hidden" name="id_produto" value="{{$produto['id']}}">
                         <input type="hidden" name="valor_un" value="{{$produto['valor']}}">
                         <div class="qtde"><label for="qtde">Qtde:</label> <input type="number" name="qtde" id="qtde" min="1" max="{{$produto['qtde']}}"></div>

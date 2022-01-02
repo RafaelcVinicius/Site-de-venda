@@ -3,7 +3,7 @@
 use App\Http\Controllers\admloginController;
 use App\Http\Controllers\ControllerProdutos;
 use App\Http\Controllers\ProdutositeController;
-use App\Models\Produtos;
+use App\Http\Controllers\vendasiteController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
@@ -36,6 +36,8 @@ route::prefix('/')->group(function () {
         route::get('/', [ProdutositeController::class, 'index'])->name('produtos');
         route::get('/{nome}', [ProdutositeController::class, 'produto'])->name('produto');
     });
+
+    route::resource('/carrinho', vendasiteController::class);
 });
 
 
