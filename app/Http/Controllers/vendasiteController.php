@@ -3,9 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class vendasiteController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +19,7 @@ class vendasiteController extends Controller
      */
     public function index()
     {
-        return view('site.venda.carrinho');
+        
     }
 
     /**
@@ -34,7 +40,11 @@ class vendasiteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $venda = ['id_produto'=> $request->id_produto, 'valor_un' => $request->valor_un, 'qtde'=> $request->qtde];
+
+
+        return view('site.venda.carrinho');
+
     }
 
     /**

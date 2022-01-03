@@ -38,6 +38,10 @@ route::prefix('/')->group(function () {
     });
 
     route::resource('/carrinho', vendasiteController::class);
+
+    route::get('/teste', function(){
+        return view('site.venda.carrinho');
+    });
 });
 
 
