@@ -66,11 +66,11 @@
     </Div>
     <div class="layout">
         @yield('corpo')
-        <footer class="footer">
+    </div>
+    <footer class="footer">
             <div class="rodape">
                         
             </div>
-        </footer>
-    </div>
+    </footer>
 </body>
 </html>

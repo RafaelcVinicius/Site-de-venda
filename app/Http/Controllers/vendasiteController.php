@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Carrinho;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 
 class vendasiteController extends Controller
 {
@@ -19,7 +21,9 @@ class vendasiteController extends Controller
      */
     public function index()
     {
-        
+        $vendas = Carrinho::where('id_user', '=', auth::id())->where('status', '=', 'ABERTO')->get();
+        //dd($vendas);
+        return view('site.venda.carrinho')->with('vendas', $vendas);
     }
 
     /**
@@ -40,10 +44,18 @@ class vendasiteController extends Controller
      */
     public function store(Request $request)
     {
-        $venda = ['id_produto'=> $request->id_produto, 'valor_un' => $request->valor_un, 'qtde'=> $request->qtde];
+        
+        $venda = new Carrinho();        
+        $venda->id_user = auth::id();
+        $venda->id_produto = $request->id_produto;
+        $venda->status = 'ABERTO';
+        $venda->valor = $request->valor_un;
+        $venda->qtde = $request->qtde;
+        $venda->save();
 
-
-        return view('site.venda.carrinho');
+                // $venda = ['id_produto'=> $request->id_produto, 'valor_un' => $request->valor_un, 'qtde'=> $request->qtde];
+                //Session::push('vendas', $venda);
+             return view('site.venda.carrinho');
 
     }
 
@@ -89,6 +101,6 @@ class vendasiteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
     }
 }

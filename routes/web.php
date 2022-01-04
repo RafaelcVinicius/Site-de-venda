@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admloginController;
 use App\Http\Controllers\ControllerProdutos;
+use App\Http\Controllers\excluirSession;
 use App\Http\Controllers\ProdutositeController;
 use App\Http\Controllers\vendasiteController;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +40,8 @@ route::prefix('/')->group(function () {
 
     route::resource('/carrinho', vendasiteController::class);
 
+    route::post('/excluir', [excluirSession::class, 'excluir'])->name('excluir');
+
     route::get('/teste', function(){
         return view('site.venda.carrinho');
     });
@@ -66,6 +69,7 @@ Route::prefix('adm')->group(function () {
     route::get('/logout', [admloginController::class, 'sair'])->name('sair');
     route::get('/site', [admloginController::class, 'site'])->name('site');
     route::resource('/produtos', ControllerProdutos::class);
+
 });
 
 
