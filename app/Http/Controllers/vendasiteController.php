@@ -44,18 +44,35 @@ class vendasiteController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $venda = new Carrinho();        
-        $venda->id_user = auth::id();
-        $venda->id_produto = $request->id_produto;
-        $venda->status = 'ABERTO';
-        $venda->valor = $request->valor_un;
-        $venda->qtde = $request->qtde;
-        $venda->save();
+            if($request->qtde == null){
+                return redirect()->back()->with('erro', $request);
+            }else{
+                $db = Carrinho::where('id_user', auth::id())->where('id_produto', $request->id_produto)->where('status', 'ABERTO')->count();
+                if(empty($db)){
 
-                // $venda = ['id_produto'=> $request->id_produto, 'valor_un' => $request->valor_un, 'qtde'=> $request->qtde];
-                //Session::push('vendas', $venda);
-             return view('site.venda.carrinho');
+                $venda = new Carrinho();        
+                $venda->id_user = auth::id();
+                $venda->id_produto = $request->id_produto;
+                $venda->status = 'ABERTO';
+                $venda->valor = $request->valor_un;
+                $venda->qtde = $request->qtde;
+                $venda->save();
+
+                }else{
+                    $db = Carrinho::where('id_user', auth::id())->where('id_produto', $request->id_produto)->where('status', 'ABERTO')->first();
+                    $venda = Carrinho::find($db->id);
+                    $venda->qtde = $db->qtde + $request->qtde;
+                    $venda->save();
+                }
+
+                // fazer uma verificação se existe o produto e acrecentar ele
+
+
+
+                        // $venda = ['id_produto'=> $request->id_produto, 'valor_un' => $request->valor_un, 'qtde'=> $request->qtde];
+                        //Session::push('vendas', $venda);
+                    return view('site.venda.carrinho');
+            }
 
     }
 

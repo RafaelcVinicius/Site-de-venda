@@ -25,6 +25,10 @@
                         <input type="hidden" name="id_produto" value="{{$produto['id']}}">
                         <input type="hidden" name="valor_un" value="{{$produto['valor']}}">
                         <div class="qtde"><label for="qtde">Qtde:</label> <input type="number" name="qtde" id="qtde" min="1" max="{{$produto['qtde']}}"></div>
+                      @if (isset($erro))
+                      @dd($erro)
+                      @else
+                      @endif
                         <div class="btn-car"><button type="submit">Adicionar ao carrinho</button></div>
                         <div class="btn-comprar"><button type="submit">Comprar</button></div>
                     </form>

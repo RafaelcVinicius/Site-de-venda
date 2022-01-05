@@ -16,9 +16,7 @@
                             </div>
                             <div class="exluir">
                                 <form action="" method="post">
-                                    @csrf
-                                    <input type="hidden" value="" name="id_produto">
-                                
+                                    @csrf                              
                                     <button>Excluir</button>
                                 </form>
                             </div>
