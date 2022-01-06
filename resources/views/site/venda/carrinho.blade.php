@@ -8,7 +8,7 @@
      </Div>
      <div class="car_itens">
          <div class="items">
-           @if (count($vendas) > 1)
+           @if (count($vendas) > 0)
                 @foreach ($vendas as $venda)
                 <article class="artic">
                     <a href="{{route('produto', $venda->produto->nome)}}">
