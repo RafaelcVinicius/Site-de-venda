@@ -145,6 +145,17 @@ svg{
 }
 
    /* carinho*/ 
+.carrinho a{
+    display: flex;
+    justify-content: center;
+    max-width: 150px;
+    height: 50px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 45px;
+    box-shadow: 0 5px 5px #ccc;
+    text-decoration: none;
+}
 .carrinho{
     display: flex;
     justify-content: center;
@@ -212,7 +223,7 @@ svg{
 .footer{
     margin-top: 80px;
     width: 100vw;
-    height: 500px;
+    height: 335px;
     background-color: rgb(216, 216, 216);
     display: flex;
 }

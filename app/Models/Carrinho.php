@@ -15,6 +15,11 @@ class Carrinho extends Model
 
 
     public function produto(){
-        return $this->hasOne(Produtos::class, 'id_produto', 'id');
+        return $this->hasOne(Produtos::class,  'id', 'id_produto');
     }
+
+
+    public function Subtotal(){
+        return $this->hasOne(Produtos::class,  'id', 'id_produto');
+}
 }
