@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admloginController;
+use App\Http\Controllers\controllerFinalizar;
 use App\Http\Controllers\ControllerProdutos;
 use App\Http\Controllers\excluirSession;
 use App\Http\Controllers\ProdutositeController;
@@ -42,9 +43,8 @@ route::prefix('/')->group(function () {
 
     route::post('/excluir', [excluirSession::class, 'excluir'])->name('excluir');
 
-    route::get('/teste', function(){
-        return view('site.venda.carrinho');
-    });
+    Route::get('finalizar', [controllerFinalizar::class, 'finalizando'])->name('finalizando');
+
 });
 
 

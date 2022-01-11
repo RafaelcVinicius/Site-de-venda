@@ -10,94 +10,54 @@
     flex-wrap: wrap;
     justify-content: center;
 }
-.voltar{
-    max-width: 1366px;
-    width: 100%;
-    display: flex;
-    justify-content: start;
+.tiulo-1{
+    margin-top: 60px;
+    margin-bottom: 40px;
     font-size: 23px;
-    padding:45px;
-
-}
-a{
-    text-decoration: none;
-    color: rgba(0, 0, 0, 0.678);
-
-}
-.car_itens{
-    max-width: 1366px;
-    width: 100%;
     display: flex;
     justify-content: center;
-}
-.items{
-    max-width: 900px;
+    max-width: 1300px;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
 }
 .artic{
+    display: grid;
+    grid-template-columns: auto 380px;
+    max-width: 1366px;
+    width: 100%;
+}
+.section-1{
     margin-top: 20px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 800px;
+    justify-content: center;
+    max-width: 930px;
     width: 100%;
-    height: 120px;
-    border-radius: 15px;
+    flex-wrap: wrap;
+    
 }
-.artic:hover{
-    box-shadow: 10px 10px 10px #ccc;
-}
-.artic a{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 800px;
-    width: 100%;
-    height: 120px;
-    border-radius:15px;
-    text-decoration: none;
-    color: rgba(0, 0, 0, 0.644);
-}
-.item{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 800px;
-    width: 100%;
-    height: 120px;
-    border-radius: 15px;
-    background-color: white;
-}
-.foto-pro{
+.section{
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 165px;
+    max-width: 900px;
     width: 100%;
-    height: 120px;
-    background-color: rgb(226, 226, 226);
-    border-bottom-left-radius: 25px;
-    border-top-left-radius: 20px;
-    color: rgba(2, 2, 2, 0.63);
+    height: 250px;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 0 0 10px #ccc;
+    flex-wrap: wrap;
 }
-.foto-pro img{
-    max-width: 165px;
+.estilo-entrega{
+    margin: 20px;
+    display: flex;
+    max-width: 800px;
     width: 100%;
-    height: 120px;
-    border-bottom-left-radius: 20px;
-    border-top-left-radius: 20px;
 }
-
-.exluir button{
-    height: 50px;
-    width: 50px;
-    margin-right: 20px;
-    border: none;
-    background-color: ;
-
+.titulo{
+    margin: 20px;
+    display: flex;
+    max-width: 800px;
+    width: 100%;
 }
 
 
@@ -136,7 +96,7 @@ a{
 /* ============ tela de finalização ============= */
 .finalizar{
     display: flex;
-    margin-top: 20px;
+    margin-top: 40px;
     max-width: 300px;
     width: 100%;
     background-color: rgb(255, 255, 255);
@@ -146,6 +106,7 @@ a{
     border-radius: 15px;
     justify-content: center;
     align-items: center;
+    box-shadow: 3px 3px 3px #ccc;
 }
 .total-pedido{
     margin-top: 5px;

@@ -49,7 +49,7 @@
                     <div class="total-pedido">Total do seu pedido</div>
                     <div class="qtde-f">  <div>Qtde de Produtos:</div> <div>{{count($vendas)}}</div> </div>  
                     <div class="subtotal-f"> <div>Sub-Total: </div>  <div>R$ {{$subtotal->valor}} </div></div>
-                    <button class="btn-finalizar">Finalizar compra</button> 
+                    <a href="{{route('finalizando')}}"><button class="btn-finalizar">Finalizar compra</button> </a>
                 </div>
             @else
 

@@ -122,7 +122,6 @@ class vendasiteController extends Controller
     {
         $del = Carrinho::find($id);
         $del->delete();
-
         return redirect()->back();
     }
 }

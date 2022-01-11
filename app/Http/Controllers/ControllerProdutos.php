@@ -178,7 +178,6 @@ class ControllerProdutos extends Controller
 
          $del = Produtos::find($id);
          $del->delete();
-
          return redirect()->route('produtos.index');
 
     }

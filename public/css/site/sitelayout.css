@@ -11,7 +11,7 @@ body{
 
 /* --------- menu ---------*/
 .tudo{
-    width: 100vw;
+    width: 99vw;
     display: flex;
     justify-content: center;
     z-index: 99;
@@ -21,9 +21,6 @@ body{
     justify-content: center;
     width: 100%;
 }
-
-
-
 
  /* ----------- barra superior --------- */
 .menu{
@@ -222,8 +219,9 @@ svg{
 }
 .footer{
     margin-top: 80px;
-    width: 100vw;
-    height: 335px;
+    width: 100%;
+    max-width: 1980px;
+    height: 300px;
     background-color: rgb(216, 216, 216);
     display: flex;
 }
