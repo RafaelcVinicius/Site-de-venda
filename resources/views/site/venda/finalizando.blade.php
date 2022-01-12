@@ -9,26 +9,42 @@
         @if (count($vendas) > 0)
         <article class="artic">
                 <section class="section-1">
-                    <section class="section">
+                    <section class="section-2">
+                    <div class="divbutton">
                         <div class="titulo">
                             <span>Forma de entrega</span>
                         </div>
-                        <div class="estilo-entrega">
-                            <Button>Retirada</Button>
+                            <div id="retiradadiv" class="estilo-entrega">
+                                <Button id="retirada">Retirada</Button>
+                            </div>
+                            <div id="entregadiv" class="estilo-entrega end hidden" >
+                                <Button id="entrega">Entrega</Button>
+                            </div>
                         </div>
-                        <div class="estilo-entrega">
-                            <Button >entrega</Button>
+                        <div class="enderecos">
+                            <div id="estabelecimento">
+                                <span>Rua Dr Maruri, 990 - 4º e 5º Andar
+                                    Salas 401, 402, 403 e 502
+                                    Centro - Concórdia - SC
+                                    CEP: 89700-168</span>
+                            </div>
+                            <div id="enderecocliente" class="desativado">
+                                @foreach ($enderecos as $endereco)
+                                <Div>{{$endereco->endereco}}</Div>
+                                @endforeach  
+                            </div>
                         </div>
+
                     </section>   
-                    <section class="section">
+                    <section id="formapagamento" class="desativado">
                         <div class="titulo">
-                            <span>Forma de entrega</span>
+                            <span>Forma de pagamento</span>
                         </div>
-                        <div class="estilo-entrega">
-                            <Button>Retirada</Button>
+                        <div id="Dinheirodiv" class="estilo-entrega">
+                            <Button id="dinheiro">Dinheiro</Button> <fieldset class="troco"> <legend><label for="troco">Troco para (R$)</label></legend> <input  type="text" placeholder="0,00" name="troco" id="troco"></fieldset>
                         </div>
-                        <div class="estilo-entrega">
-                            <Button >entrega</Button>
+                        <div id="Cartaodiv" class="estilo-entrega end hidden">
+                            <Button id="cartao">Cartão</Button>
                         </div>
                     </section>  
                 </section>

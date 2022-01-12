@@ -8,6 +8,10 @@
     <!-- css  -->
     <link rel="stylesheet" href="{{ asset('css/site/sitelayout.css')}}">
 
+    
+    <!-- Scripts -->
+    <script src="{{ asset('js/adm.js') }}" defer></script>
+
     <title>Document</title>
 </head>
 <body>

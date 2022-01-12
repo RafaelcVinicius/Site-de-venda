@@ -18,6 +18,7 @@
     justify-content: center;
     max-width: 1300px;
     width: 100%;
+    opacity: 0.7;
 }
 .artic{
     display: grid;
@@ -34,7 +35,21 @@
     flex-wrap: wrap;
     
 }
+.section-2{
+    transition: 0.3;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 900px;
+    width: 100%;
+    height: 250px;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 0 0 10px #ccc;
+}
 .section{
+    transition: 0.3;
     margin-top: 20px;
     display: flex;
     justify-content: center;
@@ -47,19 +62,99 @@
     box-shadow: 0 0 10px #ccc;
     flex-wrap: wrap;
 }
+
+.divbutton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 450px;
+    width: 100%;
+    height: 250px;
+    border-radius: 15px;
+    flex-wrap: wrap;
+}
 .estilo-entrega{
-    margin: 20px;
     display: flex;
     max-width: 800px;
     width: 100%;
 }
-.titulo{
-    margin: 20px;
+.estilo-entrega button{
     display: flex;
-    max-width: 800px;
+    align-items: center;
+    max-width: 400px;
     width: 100%;
+    height: 50px;
+    border-radius: 8px;
+    color: rgba(27, 70, 1, 0.795);
+    border:1px solid rgba(27, 70, 1, 0.795);
+    background-color: rgba(255, 255, 255, 0.219);
+}
+.end{
+    margin-bottom: 25px;
+}
+.enderecos{
+    display: flex;
+    align-items: flex-start;
+    max-height: 300px;
+    max-width: 400px;
+    width: 100%;
+    height: 70%;
+    opacity: 0.7;
 }
 
+.troco{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 30px;
+    margin-left: 20px;
+    border-radius: 20px;
+    width: 50px;
+    opacity: 0.7;
+    border:1px solid rgba(0, 0, 0, 0.65);
+    font-size: 14px;
+    width: 130px;
+
+}
+.troco input{   
+    display: flex;
+    justify-content: center;
+    outline-color: invert;
+    outline-style: none;
+    outline-width: medium;
+    -moz-outline-style: none;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 0;
+    border: none;
+    font-size: 15px;
+    width: 80px;
+}
+
+
+.titulo{
+    margin: 10px;
+    display: flex;
+    max-width: 800px;
+    font-size: 18px;
+    width: 100%;
+    opacity: 0.7;
+}
+
+/* desativar forma de pagamento*/
+
+.desativado{
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+}
+
+.hidden{
+opacity: 0.3;
+
+}
 
 /* sem produto*/
 .semproduto{
