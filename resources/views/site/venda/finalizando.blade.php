@@ -2,6 +2,8 @@
 @extends('layouts.site.site')
 @section('corpo')
     <Div class="display">
+    <form class="display" action="{{route('finalizar')}}" method="post">
+        @csrf
         <div class="tiulo-1">
             <Span>Finalização da compra</Span>
         </div>
@@ -15,10 +17,10 @@
                             <span>Forma de entrega</span>
                         </div>
                             <div id="retiradadiv" class="estilo-entrega">
-                                <Button id="retirada">Retirada</Button>
+                                <label id="retirada" for="">Retirada</label>
                             </div>
                             <div id="entregadiv" class="estilo-entrega end hidden" >
-                                <Button id="entrega">Entrega</Button>
+                                <label id="entrega" for="">Entrega</label>
                             </div>
                         </div>
                         <div class="enderecos">
@@ -30,7 +32,7 @@
                             </div>
                             <div id="enderecocliente" class="desativado">
                                 @foreach ($enderecos as $endereco)
-                                <Div>{{$endereco->endereco}}</Div>
+                                <Div id="endereço">{{$endereco->endereco}}</Div>
                                 @endforeach  
                             </div>
                         </div>
@@ -40,21 +42,29 @@
                         <div class="titulo">
                             <span>Forma de pagamento</span>
                         </div>
-                        <div id="Dinheirodiv" class="estilo-entrega">
-                            <Button id="dinheiro">Dinheiro</Button> <fieldset class="troco"> <legend><label for="troco">Troco para (R$)</label></legend> <input  type="text" placeholder="0,00" name="troco" id="troco"></fieldset>
+                        <div id="dinheirodiv" class="estilo-entrega">
+                           <label id="dinheiro" for="">Dinheiro</label>
+                            <div id="trocodiv">
+                                <fieldset class="troco"> <legend><label for="troco">Troco para (R$)</label></legend> <input  type="text" placeholder="0,00" name="troco" id="troco"></fieldset>
+                            </div>
                         </div>
-                        <div id="Cartaodiv" class="estilo-entrega end hidden">
-                            <Button id="cartao">Cartão</Button>
+                        <div id="cartaodiv" class="estilo-entrega end hidden">
+                            <label id="cartao" for="">Cartão</label>
                         </div>
                     </section>  
                 </section>
-                <div class="finalizar">
-                    <div class="total-pedido">Total do seu pedido</div>
-                    <div class="qtde-f">  <div>Qtde de Produtos:</div> <div>{{count($vendas)}}</div> </div>  
-                    <div class="subtotal-f"> <div>Sub-Total: </div>  <div>R$ {{$subtotal->valor}} </div></div>
-                    <a href="{{route('finalizando')}}"><button class="btn-finalizar">Finalizar compra</button> </a>
+                <div class="finalizar">                
+                        <div class="total-pedido">Total do seu pedido</div>
+                        <div class="qtde-f">  <div>Qtde de Produtos:</div> <div>{{count($vendas)}}</div> </div>  
+                        <div class="subtotal-f"> <div>Sub-Total: </div>  <div>R$ {{$subtotal->valor}} </div></div>
+
+                        <input type="hidden" name="tipopedido" value="retirada" id="tipopedido">
+                        <input type="hidden" name="especie" value="dinheiro" id="especie">
+                        <input type="hidden" name="subtotal" value="{{$subtotal->valor}}">
+                        <button type="submit" class="btn-finalizar">Finalizar compra</button>
                 </div>
-         </article>        
+         </article> 
+    </form>       
         @else
 
             <div class="semproduto"><div> Não a produtos no carrinho!!</div><a href="{{route('produtos')}}">Voltar as compras?</a></div>

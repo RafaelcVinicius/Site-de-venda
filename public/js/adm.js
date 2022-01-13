@@ -1,6 +1,6 @@
 // -------- habilitar ou desabilitar a forma de pagamento ------------*/
 
-const retirada = document.getElementById("retirada");
+const retirada = document.getElementById("retiradadiv");
 
 retirada.addEventListener('click', tirarpagamento);
 
@@ -10,6 +10,8 @@ function tirarpagamento(){
     const entregadiv = document.getElementById("entregadiv");
     const estabelecimento = document.getElementById("estabelecimento");    
     const enderecocliente = document.getElementById("enderecocliente");   
+
+    document.getElementById('tipopedido').value = 'retirada';
 
     enderecocliente.classList.add('desativado');
     estabelecimento.classList.remove('desativado');
@@ -25,13 +27,14 @@ entrega.addEventListener('click', pagamento);
 
     function pagamento(){
 
-
     const dispaly = document.getElementById("formapagamento");
     const retiradadiv = document.getElementById("retiradadiv");
     const entregadiv = document.getElementById("entregadiv");
     const estabelecimento = document.getElementById("estabelecimento");    
     const enderecocliente = document.getElementById("enderecocliente");   
-
+    
+    document.getElementById('tipopedido').value = 'entrega';
+    
     enderecocliente.classList.remove('desativado');
     estabelecimento.classList.add('desativado');
     retiradadiv.classList.add('hidden');
@@ -41,6 +44,45 @@ entrega.addEventListener('click', pagamento);
     }
 
 
+
+
+/* -------------  Definir especie ------------------   */
+
+const cartao = document.getElementById("cartao");
+
+cartao.addEventListener('click', formacartao);
+
+    function formacartao(){
+
+        const cartaodiv = document.getElementById("cartaodiv");   
+        const dinheirodiv = document.getElementById("dinheirodiv"); 
+        const trocodiv = document.getElementById("trocodiv"); 
+
+        document.getElementById('especie').value = 'cartao';
+        document.getElementById('troco').value = '0,00';
+
+        cartaodiv.classList.remove('hidden');
+        dinheirodiv.classList.add('hidden');
+        trocodiv.classList.add('displaynone')
+    }
+
+
+    const dinheiro = document.getElementById("dinheiro");
+
+    dinheiro.addEventListener('click', formadinheiro);
+
+    function formadinheiro(){
+
+        const cartaodiv = document.getElementById("cartaodiv");   
+        const dinheirodiv = document.getElementById("dinheirodiv"); 
+        const trocodiv = document.getElementById("trocodiv"); 
+
+        document.getElementById('especie').value = 'dinheiro';
+
+        cartaodiv.classList.add('hidden');
+        dinheirodiv.classList.remove('hidden');
+        trocodiv.classList.remove('displaynone')
+    }
 
 // ---------- nav bar menu  mobile -----------*/
 const btnmobile = document.getElementById("btn-mobile");

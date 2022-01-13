@@ -78,7 +78,8 @@
     max-width: 800px;
     width: 100%;
 }
-.estilo-entrega button{
+
+.estilo-entrega > label{
     display: flex;
     align-items: center;
     max-width: 400px;
@@ -89,6 +90,7 @@
     border:1px solid rgba(27, 70, 1, 0.795);
     background-color: rgba(255, 255, 255, 0.219);
 }
+
 .end{
     margin-bottom: 25px;
 }
@@ -115,7 +117,6 @@
     border:1px solid rgba(0, 0, 0, 0.65);
     font-size: 14px;
     width: 130px;
-
 }
 .troco input{   
     display: flex;
@@ -130,7 +131,7 @@
     border: 0;
     border: none;
     font-size: 15px;
-    width: 80px;
+    width: 50px;
 }
 
 
@@ -146,11 +147,15 @@
 /* desativar forma de pagamento*/
 
 .desativado{
+    opacity: 0;
     width: 0px;
     height: 0px;
     overflow: hidden;
 }
 
+.displaynone{
+display: none;
+}
 .hidden{
 opacity: 0.3;
 
@@ -203,6 +208,13 @@ opacity: 0.3;
     align-items: center;
     box-shadow: 3px 3px 3px #ccc;
 }
+.formfinalizar{
+    display: flex;
+    max-width: 300px;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 .total-pedido{
     margin-top: 5px;
     max-width: 280px;
@@ -231,13 +243,6 @@ opacity: 0.3;
     font-size: 15px;
     font-weight: bold;
     color: rgba(0, 0, 0, 0.60);
-}
-.finalizar a{
-    margin-top: 5px;
-    max-width: 280px;
-    width: 100%;
-    height: 45px;
-    border: none;
 }
 .btn-finalizar{
     margin-top: 5px;

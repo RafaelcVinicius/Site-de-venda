@@ -43,8 +43,10 @@ route::prefix('/')->group(function () {
 
     route::post('/excluir', [excluirSession::class, 'excluir'])->name('excluir');
 
-    Route::get('finalizar', [controllerFinalizar::class, 'finalizando'])->name('finalizando');
-
+    Route::prefix('finalizar')->group(function(){
+        Route::get('/', [controllerFinalizar::class, 'finalizando'])->name('finalizando');
+        Route::Post('/', [controllerFinalizar::class, 'finalizar'])->name('finalizar');
+    });
 });
 
 
