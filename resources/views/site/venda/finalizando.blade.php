@@ -17,10 +17,10 @@
                             <span>Forma de entrega</span>
                         </div>
                             <div id="retiradadiv" class="estilo-entrega">
-                                <label id="retirada" for="">Retirada</label>
+                                <label id="retirada" for=""><span>Retirada</span></label>
                             </div>
                             <div id="entregadiv" class="estilo-entrega end hidden" >
-                                <label id="entrega" for="">Entrega</label>
+                                <label id="entrega" for=""><span> Entrega </span></label>
                             </div>
                         </div>
                         <div class="enderecos">
@@ -31,8 +31,12 @@
                                     CEP: 89700-168</span>
                             </div>
                             <div id="enderecocliente" class="desativado">
+                                <input id="nende" type="hidden" value="{{$nende}}">
                                 @foreach ($enderecos as $endereco)
-                                <Div id="endereço">{{$endereco->endereco}}</Div>
+                                <Div class="endereco" id="ende" id="endereco-{{$endereco->id}}">
+                                    <input type="radio" onclick="endereco({{$endereco->id}})" name="radio" id="{{$endereco->id}}">
+                                    <label for="{{$endereco->id}}">{{$endereco->endereco}}</label>                                
+                                </Div>
                                 @endforeach  
                             </div>
                         </div>
@@ -43,13 +47,13 @@
                             <span>Forma de pagamento</span>
                         </div>
                         <div id="dinheirodiv" class="estilo-entrega">
-                           <label id="dinheiro" for="">Dinheiro</label>
+                           <label id="dinheiro" for=""><span>Dinheiro</span></label>
                             <div id="trocodiv">
                                 <fieldset class="troco"> <legend><label for="troco">Troco para (R$)</label></legend> <input  type="text" placeholder="0,00" name="troco" id="troco"></fieldset>
                             </div>
                         </div>
                         <div id="cartaodiv" class="estilo-entrega end hidden">
-                            <label id="cartao" for="">Cartão</label>
+                            <label id="cartao" for=""><span>Cartão</span></label>
                         </div>
                     </section>  
                 </section>
@@ -58,6 +62,7 @@
                         <div class="qtde-f">  <div>Qtde de Produtos:</div> <div>{{count($vendas)}}</div> </div>  
                         <div class="subtotal-f"> <div>Sub-Total: </div>  <div>R$ {{$subtotal->valor}} </div></div>
 
+                        <input type="hidden" name="id_endereco" value="local" id="id_endereco">
                         <input type="hidden" name="tipopedido" value="retirada" id="tipopedido">
                         <input type="hidden" name="especie" value="dinheiro" id="especie">
                         <input type="hidden" name="subtotal" value="{{$subtotal->valor}}">

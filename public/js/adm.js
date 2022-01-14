@@ -83,6 +83,18 @@ cartao.addEventListener('click', formacartao);
         dinheirodiv.classList.remove('hidden');
         trocodiv.classList.remove('displaynone')
     }
+/*   -------------- selecionando endereço -------------  */
+
+
+function endereco(id){
+
+    document.getElementById('id_endereco').value = id;
+}
+
+
+
+
+
 
 // ---------- nav bar menu  mobile -----------*/
 const btnmobile = document.getElementById("btn-mobile");

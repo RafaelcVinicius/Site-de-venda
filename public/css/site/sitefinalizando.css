@@ -90,10 +90,14 @@
     border:1px solid rgba(27, 70, 1, 0.795);
     background-color: rgba(255, 255, 255, 0.219);
 }
-
+.estilo-entrega label span{
+    margin-left: 20px;
+    color: rgba(27, 70, 1, 0.795);
+}
 .end{
     margin-bottom: 25px;
 }
+
 .enderecos{
     display: flex;
     align-items: flex-start;
@@ -103,7 +107,13 @@
     height: 70%;
     opacity: 0.7;
 }
-
+.ativado{
+    opacity: 1;
+} 
+.endereco{
+    display: flex;
+    margin: 20px;
+}
 .troco{
     display: flex;
     justify-content: center;
