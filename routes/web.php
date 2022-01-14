@@ -3,6 +3,7 @@
 use App\Http\Controllers\admloginController;
 use App\Http\Controllers\controllerFinalizar;
 use App\Http\Controllers\ControllerProdutos;
+use App\Http\Controllers\EnderecoUser;
 use App\Http\Controllers\excluirSession;
 use App\Http\Controllers\ProdutositeController;
 use App\Http\Controllers\vendasiteController;
@@ -47,6 +48,8 @@ route::prefix('/')->group(function () {
         Route::get('/', [controllerFinalizar::class, 'finalizando'])->name('finalizando');
         Route::Post('/', [controllerFinalizar::class, 'finalizar'])->name('finalizar');
     });
+
+    Route::resource('endereco', [EnderecoUser::class]);
 });
 
 
