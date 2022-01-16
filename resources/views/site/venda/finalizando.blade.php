@@ -49,7 +49,7 @@
                         <div id="dinheirodiv" class="estilo-entrega">
                            <label id="dinheiro" for=""><span>Dinheiro</span></label>
                             <div id="trocodiv">
-                                <fieldset class="troco"> <legend><label for="troco">Troco para (R$)</label></legend> <input  type="text" placeholder="0,00" name="troco" id="troco"></fieldset>
+                                <fieldset class="troco"> <legend><label for="troco">Troco para (R$)</label></legend> <input  type="text" placeholder="0,00" name="valorpago" id="troco"></fieldset>
                             </div>
                         </div>
                         <div id="cartaodiv" class="estilo-entrega end hidden">

@@ -3,8 +3,7 @@
 use App\Http\Controllers\admloginController;
 use App\Http\Controllers\controllerFinalizar;
 use App\Http\Controllers\ControllerProdutos;
-use App\Http\Controllers\EnderecoUser;
-use App\Http\Controllers\excluirSession;
+use App\Http\Controllers\EnderecoController;
 use App\Http\Controllers\ProdutositeController;
 use App\Http\Controllers\vendasiteController;
 use Illuminate\Support\Facades\Route;
@@ -42,14 +41,17 @@ route::prefix('/')->group(function () {
 
     route::resource('/carrinho', vendasiteController::class);
 
-    route::post('/excluir', [excluirSession::class, 'excluir'])->name('excluir');
 
     Route::prefix('finalizar')->group(function(){
         Route::get('/', [controllerFinalizar::class, 'finalizando'])->name('finalizando');
         Route::Post('/', [controllerFinalizar::class, 'finalizar'])->name('finalizar');
     });
+    
 
-    Route::resource('endereco', [EnderecoUser::class]);
+    Route::resource('/endereco', EnderecoController::class);
+
+
+
 });
 
 
