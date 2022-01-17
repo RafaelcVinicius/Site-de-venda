@@ -21,6 +21,8 @@ function tirarpagamento(){
     dispaly.classList.add('desativado');
 }
 
+
+
 const entrega = document.getElementById("entrega");
 
 entrega.addEventListener('click', pagamento);
@@ -32,15 +34,18 @@ entrega.addEventListener('click', pagamento);
     const entregadiv = document.getElementById("entregadiv");
     const estabelecimento = document.getElementById("estabelecimento");    
     const enderecocliente = document.getElementById("enderecocliente");   
-    
+    const idendereco = document.getElementById("idendereco");   
+
     document.getElementById('tipopedido').value = 'entrega';
     
+    //idendereco.inner
     enderecocliente.classList.remove('desativado');
     estabelecimento.classList.add('desativado');
     retiradadiv.classList.add('hidden');
     entregadiv.classList.remove('hidden');
     dispaly.classList.remove('desativado');
     dispaly.classList.add('section');
+
     }
 
 

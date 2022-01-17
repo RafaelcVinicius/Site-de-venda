@@ -62,7 +62,7 @@
                         <div class="qtde-f">  <div>Qtde de Produtos:</div> <div>{{count($vendas)}}</div> </div>  
                         <div class="subtotal-f"> <div>Sub-Total: </div>  <div>R$ {{$subtotal->valor}} </div></div>
 
-                        <input type="hidden" name="id_endereco" value="local" id="id_endereco">
+                        <input type="hidden" name="id_endereco" value="{{$enderecos[0]->id}}" id="id_endereco">
                         <input type="hidden" name="tipopedido" value="retirada" id="tipopedido">
                         <input type="hidden" name="especie" value="dinheiro" id="especie">
                         <input type="hidden" name="subtotal" value="{{$subtotal->valor}}">

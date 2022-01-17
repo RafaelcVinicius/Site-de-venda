@@ -15,7 +15,7 @@ class controllerFinalizar extends Controller
         $vendas = Carrinho::where('id_user', '=', auth::id())->where('status', '=', 'ABERTO')->get();
         $subtotal = Carrinho::where('id_user', auth::id())->where('status', 'ABERTO')->selectRaw("SUM(valor) as valor")->first();
         $enderecos = Enderecouser::where('id_user', auth::id())->get();
-     
+
         $nende = count($enderecos);
       return view('site.venda.finalizando')->with('vendas', $vendas)->with('subtotal', $subtotal)->with('enderecos', $enderecos)->with('nende',$nende);
     }
