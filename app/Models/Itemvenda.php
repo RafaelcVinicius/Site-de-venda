@@ -5,18 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Carrinho extends Model
+class Itemvenda extends Model
 {
     use HasFactory;
 
-    protected $table = 'carrinho';
+    protected $table = 'itemvenda';
     protected $primarykey = 'id';
     public $timestamps = false;
-
-
-    public function produto(){
-        return $this->hasOne(Produtos::class,  'id', 'id_produto');
-    }
-
-
 }

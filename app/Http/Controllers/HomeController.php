@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produtos;
+use App\Models\Vendas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -26,5 +28,13 @@ class HomeController extends Controller
     {
         $produtos = Produtos::get();
         return view('site.site')->with('produtos', $produtos);
+    }
+
+
+    public function meuspedidos(){
+
+        $pedidos = Vendas::where('id_user', Auth::id())->get();
+        
+        return view('site.user.meuspedidos')->with('pedidos', $pedidos);
     }
 }

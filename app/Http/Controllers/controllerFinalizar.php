@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Carrinho;
 use App\Models\enderecouser;
+use App\Models\Itemvenda;
 use App\Models\Vendas;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -22,32 +23,54 @@ class controllerFinalizar extends Controller
 
   public function finalizar(Request $request){
 
+        $pedido = new Vendas();
+        $pedido->id_user = auth::id();
+        $pedido->valor = $request->subtotal;
+
       if($request->tipopedido == 'retirada'){
-        
-        $retirada = new Vendas();
-        $retirada->user = auth::id();
-        $retirada->valor = $request->subtotal;
-        $retirada->tipopedido = 'retirada';
-        $retirada->id_endereco = 0;
-        $retirada->especie = 'dinheiro';
-        $retirada->valorpago = $request->subtotal;
-        $retirada->troco = '0,00';
+        $pedido->tipopedido = 'retirada';
+        $pedido->especie = 'dinheiro';
+        $pedido->valorpago = $request->subtotal;
+        $pedido->troco = 0.00;
       }
       else{
-        if($request->especie == 'dinheiro' ){
-          $entrega = new Vendas();
-          $entrega->user = auth::id();
-          $entrega->valor = $request->subtotal;
-          $entrega->tipopedido = 'entrega';
-          $entrega->id_endereco = $request->id_endereco;
-          $entrega->especie = 'dinheiro';
-          $entrega->valorpago = $request->valorpago;
+        $pedido->tipopedido = 'entrega';
+        $pedido->id_endereco = $request->id_endereco; 
 
+        if($request->especie == 'dinheiro' ){
+          $pedido->especie = 'dinheiro';
+          $pedido->valorpago = $request->valorpago;
+          $pedido->troco =  ($request->valorpago - $request->subtotal);
         }
         else{
-          $entrega = new Vendas();
+          $pedido->especie = 'cartão';
+          $pedido->valorpago = $request->subtotal;
+          $pedido->troco =  0.00;
         }
-        
       }
+        $pedido->save();
+
+        $itens = Carrinho::where('id_user', auth::id())->get();
+
+        foreach($itens as $item){
+          $itenspedido = new Itemvenda();
+          $itenspedido->id_venda = 1;
+          $itenspedido->id_produto = $item->id_produto;
+          $itenspedido->qtde = $item->qtde;
+          $itenspedido->valor = $item->valor;
+          $itenspedido->save();
+
+          $del = Carrinho::find($item->id);
+          $del->delete();
+
+        }
+
+        return redirect()->route('meuspedidos');
+
+
   }
+
+
+
+
 }

@@ -4,6 +4,8 @@ use App\Http\Controllers\admloginController;
 use App\Http\Controllers\controllerFinalizar;
 use App\Http\Controllers\ControllerProdutos;
 use App\Http\Controllers\EnderecoController;
+use App\Http\Controllers\GerencialController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProdutositeController;
 use App\Http\Controllers\vendasiteController;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +31,8 @@ Auth::routes();
 route::prefix('/')->group(function () {
 
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    route::get('/user', [HomeController::class, 'meuspedidos'] )->name('meuspedidos');
 
     Route::get('/home', function(){
         return redirect()->route('home');
@@ -74,9 +78,11 @@ Route::prefix('adm')->group(function () {
     route::get('/login', [admloginController::class, 'view'])->name('view');
     route::post('/login', [admloginController::class, 'logar'])->name('logar');
     route::get('/logout', [admloginController::class, 'sair'])->name('sair');
-    route::get('/site', [admloginController::class, 'site'])->name('site');
-    route::resource('/produtos', ControllerProdutos::class);
 
+    route::prefix('/site')->group(function () {
+    route::get('/', [GerencialController::class, 'index'])->name('site');
+    route::resource('/produtos', ControllerProdutos::class);
+    });
 });
 
 
