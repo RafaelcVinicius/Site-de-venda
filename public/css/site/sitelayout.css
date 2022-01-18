@@ -11,7 +11,7 @@ body{
 
 /* --------- menu ---------*/
 .tudo{
-    width: 99vw;
+    width: 100vw;
     display: flex;
     justify-content: center;
     z-index: 99;
@@ -105,6 +105,9 @@ svg{
 .bem{
     color: rgb(122, 167, 52);
     font-size: 15px;
+}
+.a-us{
+    text-decoration: none;
 }
 .nome-user{
     color: rgb(122, 167, 52);

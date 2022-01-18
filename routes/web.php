@@ -8,6 +8,7 @@ use App\Http\Controllers\GerencialController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProdutositeController;
 use App\Http\Controllers\vendasiteController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
@@ -27,12 +28,16 @@ use Illuminate\Support\Facades\Session;
  
 Auth::routes();
 
-
 route::prefix('/')->group(function () {
 
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-    route::get('/user', [HomeController::class, 'meuspedidos'] )->name('meuspedidos');
+    route::prefix('/user')->group(function () {
+
+        Route::get('/', [HomeController::class, 'perfil'])->name('perfil')->middleware('auth');
+        Route::get('/pedidos', [HomeController::class, 'meuspedidos'] )->name('meuspedidos')->middleware('auth');
+        Route::resource('/endereco', EnderecoController::class);
+    });
 
     Route::get('/home', function(){
         return redirect()->route('home');
@@ -52,7 +57,7 @@ route::prefix('/')->group(function () {
     });
     
 
-    Route::resource('/endereco', EnderecoController::class);
+   
 
 
 

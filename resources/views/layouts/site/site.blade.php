@@ -38,7 +38,7 @@
                             <div class="us">@if (empty(Auth::user()->name))
                                     <span class="ou"><a href="{{route('login')}}">Entre </a> <p>ou</p> <a href="{{route('register')}}"> cadastre-se </a></span>
                                 @else
-                                <span class="nome-user">{{Auth::user()->name}}</span>
+                                <a href="{{route('perfil')}}"><span class="nome-user">{{Auth::user()->name}}</span></a>
                                 <span>
                                     <form action="{{ route('logout') }}" method="POST">
                                         @csrf

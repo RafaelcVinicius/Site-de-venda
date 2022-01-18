@@ -31,8 +31,7 @@
                                     CEP: 89700-168</span>
                             </div>
                             <div id="enderecocliente" class="desativado">
-                                <input id="nende" type="hidden" value="{{$nende}}">
-                                @foreach ($enderecos as $endereco)
+                                @foreach ($enderecos as $endereco)                               
                                 <Div class="endereco" id="ende" id="endereco-{{$endereco->id}}">
                                     <input type="radio" onclick="endereco({{$endereco->id}})" name="radio" id="{{$endereco->id}}">
                                     <label for="{{$endereco->id}}">{{$endereco->endereco}}</label>                                

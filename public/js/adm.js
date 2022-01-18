@@ -34,11 +34,13 @@ entrega.addEventListener('click', pagamento);
     const entregadiv = document.getElementById("entregadiv");
     const estabelecimento = document.getElementById("estabelecimento");    
     const enderecocliente = document.getElementById("enderecocliente");   
-    const idendereco = document.getElementById("idendereco");   
+    
+    var id = document.getElementById("id_endereco").value;   
+    const idendereco = document.getElementById(id);  
 
     document.getElementById('tipopedido').value = 'entrega';
     
-    //idendereco.inner
+    idendereco.checked = true;
     enderecocliente.classList.remove('desativado');
     estabelecimento.classList.add('desativado');
     retiradadiv.classList.add('hidden');
@@ -56,6 +58,7 @@ entrega.addEventListener('click', pagamento);
 const cartao = document.getElementById("cartao");
 
 cartao.addEventListener('click', formacartao);
+
 
     function formacartao(){
 

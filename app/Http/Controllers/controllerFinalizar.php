@@ -11,13 +11,16 @@ use Illuminate\Http\Request;
 
 class controllerFinalizar extends Controller
 {
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
+
     public function finalizando(){
         $vendas = Carrinho::where('id_user', '=', auth::id())->where('status', '=', 'ABERTO')->get();
         $subtotal = Carrinho::where('id_user', auth::id())->where('status', 'ABERTO')->selectRaw("SUM(valor) as valor")->first();
         $enderecos = Enderecouser::where('id_user', auth::id())->get();
-
-        $nende = count($enderecos);
-      return view('site.venda.finalizando')->with('vendas', $vendas)->with('subtotal', $subtotal)->with('enderecos', $enderecos)->with('nende',$nende);
+      return view('site.venda.finalizando')->with('vendas', $vendas)->with('subtotal', $subtotal)->with('enderecos', $enderecos);
     }
 
 
