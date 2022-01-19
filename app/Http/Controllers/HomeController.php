@@ -48,6 +48,5 @@ class HomeController extends Controller
         $enderecos = Enderecouser::where('id_user', Auth::id())->get();
 
         return view('site.user.perfil')->with('pedidos', $pedidos)->with('dados', $dados)->with('enderecos', $enderecos);
-
     }
 }

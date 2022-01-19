@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Vendas;
+use App\Models\enderecouser;
 
 class User extends Authenticatable
 {
@@ -45,6 +47,12 @@ class User extends Authenticatable
     public function endereco(){
         return $this->hasMany(enderecouser::class, 'id_user', 'id');
     }
+
+    public function vendas(){
+        return $this->hasMany(Vendas::class, 'id_user', 'id');
+    }
+
+
 }
 
 

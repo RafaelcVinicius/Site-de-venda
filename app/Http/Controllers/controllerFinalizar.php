@@ -29,6 +29,7 @@ class controllerFinalizar extends Controller
         $pedido = new Vendas();
         $pedido->id_user = auth::id();
         $pedido->valor = $request->subtotal;
+        $pedido->status = 'aberto';
 
       if($request->tipopedido == 'retirada'){
         $pedido->tipopedido = 'retirada';
@@ -57,7 +58,7 @@ class controllerFinalizar extends Controller
 
         foreach($itens as $item){
           $itenspedido = new Itemvenda();
-          $itenspedido->id_venda = 1;
+          $itenspedido->id_venda = $pedido->id;
           $itenspedido->id_produto = $item->id_produto;
           $itenspedido->qtde = $item->qtde;
           $itenspedido->valor = $item->valor;

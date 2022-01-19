@@ -13,20 +13,34 @@ a{
     width: 100%;
 }
 h5{
+    display: flex;
+    justify-content: center;
     font-size: 18px;
     color: rgba(0, 0, 0, 0.705);
+    max-width: 400px;
+    width: 100%;
 }
 .dados{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    max-width: 1000px;
+    max-width: 1360px;
     width: 100%;
     background-color: white;
     margin-top: 20px;
     border-radius: 10px;
     box-shadow: 3px 5px 5px #ccc;
 }
+.dados-p{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1360px;
+    width: 100%;
+    margin-top: 20px;
+
+}
+
 .dadosuser{
     display: flex;
     justify-content: center;
@@ -53,10 +67,10 @@ h5{
     max-width: 300px;
     width: 100%;
     opacity: 0.6;
+    margin-left: 20px;
 }
-.medio{
+.small{
     margin: 5px;
-    max-width: 500px;
     width: 100%;
     opacity:0.6;
 }
@@ -70,6 +84,68 @@ fieldset{
     border-radius: 20px;
     display: flex;
     justify-content: center;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
+    margin-bottom: 30px;
+}
+.abertos{
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+
+    flex-wrap: wrap;
+}
+.aberto{
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+    flex-wrap: wrap;
+    margin: 10px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px #ccc;
+}
+.hederpedido{
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.348);
+}
+.hederpedido > div{
+padding: 10px;
+}
+.itens{
+    display: flex;
+    max-width: 450px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.img-produto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    background-color: rgb(231, 231, 231);
+    border-radius: 5px;
+}
+.img-produto img{
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    border-radius: 5px;
+}
+.dados-venda{
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+    border-radius: 8px;
+}
+.inf{
+    width: 100px;
+    height: 100px;
+    margin-top: 3px;
 }
