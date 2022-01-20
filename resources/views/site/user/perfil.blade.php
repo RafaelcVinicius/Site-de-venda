@@ -94,33 +94,38 @@
             <div class="finalizados">
                 <h3>Historico de pedidos</h3>
                 
-                    <table id="pedidos">
-                        <thead>
-                            <tr>
-                                <th>Pedido</th>
-                                <th>Endereço</th>
-                                <th>Tipo Pedido</th>
-                                <th>Subtotal</th>
-                                <th>Status</th>
-                                <th>Ação</th>
-                            </tr>
 
-                        </thead>
-                        <tbody>
-                            @foreach ($pedidos as $pedido)
-                            @if ($pedido->status == 'Finalizado')  
-                            <tr>
-                                <td>{{$pedido->id}}</td>
-                                <td>{{$pedido->id_endereco}}</td>
-                                <td>{{$pedido->tipopedido}}</td>
-                                <td>{{$pedido->valor}}</td>
-                                <td>{{$pedido->status}}</td>
-                                <td>abc</td>
-                            </tr>
-                            @endif
-                            @endforeach
-                        </tbody>
-                    </table>
+                <table id="table_id" class="display">
+                    <thead>
+                        <tr>
+                            <th>Column 1</th>
+                            <th>Column 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Row 1 Data 1</td>
+                            <td>Row 1 Data 2</td>
+                        </tr>
+                        <tr>
+                            <td>Row 2 Data 1</td>
+                            <td>Row 2 Data 2</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+  
+<script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+<script>
+$(document).ready( function () {
+    $('#table_id').DataTable();
+} );
+</script>
+
+
+
+
+
             </div>            
         </div>
     </div>
