@@ -29,11 +29,11 @@ class controllerFinalizar extends Controller
         $pedido = new Vendas();
         $pedido->id_user = auth::id();
         $pedido->valor = $request->subtotal;
-        $pedido->status = 'aberto';
+        $pedido->status = 'Aberto';
 
       if($request->tipopedido == 'retirada'){
-        $pedido->tipopedido = 'retirada';
-        $pedido->especie = 'dinheiro';
+        $pedido->tipopedido = 'Retirada';
+        $pedido->especie = 'Dinheiro';
         $pedido->valorpago = $request->subtotal;
         $pedido->troco = 0.00;
       }
@@ -42,12 +42,12 @@ class controllerFinalizar extends Controller
         $pedido->id_endereco = $request->id_endereco; 
 
         if($request->especie == 'dinheiro' ){
-          $pedido->especie = 'dinheiro';
+          $pedido->especie = 'Dinheiro';
           $pedido->valorpago = $request->valorpago;
           $pedido->troco =  ($request->valorpago - $request->subtotal);
         }
         else{
-          $pedido->especie = 'cartão';
+          $pedido->especie = 'Cartão';
           $pedido->valorpago = $request->subtotal;
           $pedido->troco =  0.00;
         }

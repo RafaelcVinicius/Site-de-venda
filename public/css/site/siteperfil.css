@@ -95,6 +95,10 @@ fieldset{
 
     flex-wrap: wrap;
 }
+.link{
+    display: flex;
+    width: 100%;
+}
 .aberto{
     display: flex;
     max-width: 1000px;
@@ -112,9 +116,33 @@ fieldset{
     justify-content: space-around;
     margin-bottom: 10px;
     border-bottom: 2px solid rgba(0, 0, 0, 0.348);
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.600);
 }
 .hederpedido > div{
 padding: 10px;
+}
+.status{
+    background-color: #9fb878;
+    border-radius: 25px;
+    margin: 3px;
+    color: white;
+    font-weight: 500;
+
+}
+.nomeproduto{
+    margin: 5px;
+    max-width: 300px;
+    width: 100%;
+    opacity: 0.6;
+    font-size: 16px;
+    margin-left: 20px;
+    font-weight: 500;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.nomeproduto a{
+padding: 8px;
+color: #03850a
 }
 .itens{
     display: flex;
@@ -126,18 +154,34 @@ padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100px;
-    height: 100px;
+    width: 130px;
+    height: 130px;
     margin: 5px;
     background-color: rgb(231, 231, 231);
     border-radius: 5px;
 }
 .img-produto img{
-    width: 100px;
-    height: 100px;
+    width: 130px;
+    height: 130px;
     margin: 5px;
     border-radius: 5px;
 }
+.dados-produto{
+    max-width: 300px;
+    width: 100%;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.658);
+}
+.dados-produto-header{
+    display: flex;
+    justify-content: flex-end;
+}
+.margin-right{
+margin-right: 15px;
+}
+.margin-right-20{
+    margin-right: 20px;
+    }
 .dados-venda{
     display: flex;
     max-width: 1000px;
@@ -145,7 +189,46 @@ padding: 10px;
     border-radius: 8px;
 }
 .inf{
-    width: 100px;
-    height: 100px;
+    max-width: 530px;
+    width: 100%;
     margin-top: 3px;
+    display: flex;
+    justify-content:space-around ;
+
+}
+.tipopedido{
+display: flex;
+justify-content: flex-start;
+flex-wrap: wrap;
+max-width: 400px;
+width: 100%;
+color: rgba(0, 0, 0, 0.623);
+}
+.emlinha{
+    display: flex;
+}
+.tiulo{
+    color: rgba(0, 0, 0, 0.681);
+    font-weight: bold;
+    padding-right: 5px;
+}
+.entrega{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    max-width: 420px;
+    width: 100%;
+}
+.valor{
+    font-weight: bold;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.63);
+    width: 100%;
+    max-width: 70px;
+}
+.valor > div{
+    color: rgb(32, 180, 32);
+    font-weight: bold;
+    font-size: 16px;
+    di
 }
