@@ -113,7 +113,7 @@ fieldset{
     display: flex;
     max-width: 1000px;
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-bottom: 10px;
     border-bottom: 2px solid rgba(0, 0, 0, 0.348);
     font-weight: bold;
@@ -230,5 +230,23 @@ color: rgba(0, 0, 0, 0.623);
     color: rgb(32, 180, 32);
     font-weight: bold;
     font-size: 16px;
-    di
+}
+.finalizados{
+    display: flex;
+    margin-top: 60px;
+    max-width: 350px;
+    width: 100%;
+}
+.historico{
+    display: flex;
+    justify-content: center;
+    max-width: 350px;
+    width: 100%;
+    background-color: rgb(43, 135, 255);
+    padding: 13px;
+    color: white;
+    border-radius: 15px;
+}
+.historico:hover{
+    background-color: rgb(23, 104, 255);
 }

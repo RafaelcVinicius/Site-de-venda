@@ -32,7 +32,8 @@
                 @foreach ($pedidos as $pedido)
                 <div class="aberto">
                     @if ($pedido->status <> 'Finalizado')                
-                        <div class="hederpedido"> <div> Pedido: {{$pedido->id}} </div> <div class="status">  Status: {{$pedido->status}}</div></div>    
+                        <div class="hederpedido"> <div> Pedido: {{$pedido->id}} </div> <div class="">Status: {{$pedido->status}}<div class="data">
+                            Pedido Recebido {{date('d/m/y - H:i', strtotime($pedido->created_at))}}</div> </div> </div>    
                        
                         <div class="dados-venda">
                             <div class="itens">
@@ -92,40 +93,8 @@
                 @endforeach
              </div> 
             <div class="finalizados">
-                <h3>Historico de pedidos</h3>
+                <a class="historico" href="{{route('historico')}}">Histórico dos pedidos</a>
                 
-
-                <table id="table_id" class="display">
-                    <thead>
-                        <tr>
-                            <th>Column 1</th>
-                            <th>Column 2</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Row 1 Data 1</td>
-                            <td>Row 1 Data 2</td>
-                        </tr>
-                        <tr>
-                            <td>Row 2 Data 1</td>
-                            <td>Row 2 Data 2</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-  
-<script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
-<script>
-$(document).ready( function () {
-    $('#table_id').DataTable();
-} );
-</script>
-
-
-
-
-
             </div>            
         </div>
     </div>
@@ -134,32 +103,6 @@ $(document).ready( function () {
 
 </div>
 
-
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
-  
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
-
-<script> 
-
-$(document).ready( function () {
-    $('#pedidos').DataTable();
-} );
-
-
-/*@foreach ($pedidos as $pedido)
-@if ($pedido->status == 'Finalizado')  
-<tr>
-    <td>{{$pedido->id}}</td>
-    <td>{{$pedido->id_endereco}}</td>
-    <td>{{$pedido->tipopedido}}</td>
-    <td>{{$pedido->valor}}</td>
-    <td>{{$pedido->status}}</td>
-    <td>abc</td>
-</tr>
-@endif
-@endforeach*/
-
-    </script>
 
 @endsection
 

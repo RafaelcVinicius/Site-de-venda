@@ -49,4 +49,10 @@ class HomeController extends Controller
 
         return view('site.user.perfil')->with('pedidos', $pedidos)->with('dados', $dados)->with('enderecos', $enderecos);
     }
+
+    public function historico(){
+        $pedidos = Vendas::where('id_user', Auth::id())->where('status', 'Finalizado')->get();
+
+        return view('site.user.historico')->with('pedidos', $pedidos);
+    }
 }

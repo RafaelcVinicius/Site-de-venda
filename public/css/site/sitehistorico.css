@@ -1,0 +1,22 @@
+a{
+    text-decoration: none;
+}
+.layout{
+    display: flex;
+    justify-content: center;
+}
+.corpo{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1360px;
+    width: 100%;
+}
+h5{
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.705);
+    max-width: 400px;
+    width: 100%;
+}

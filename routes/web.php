@@ -36,6 +36,7 @@ route::prefix('/')->group(function () {
 
         Route::get('/', [HomeController::class, 'perfil'])->name('perfil')->middleware('auth');
         Route::get('/pedidos', [HomeController::class, 'meuspedidos'] )->name('meuspedidos')->middleware('auth');
+        Route::get('/historico', [HomeController::class, 'historico'] )->name('historico')->middleware('auth');
         Route::resource('/endereco', EnderecoController::class);
     });
 
