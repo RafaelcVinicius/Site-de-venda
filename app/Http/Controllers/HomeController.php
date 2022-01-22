@@ -51,7 +51,7 @@ class HomeController extends Controller
     }
 
     public function historico(){
-        $pedidos = Vendas::where('id_user', Auth::id())->where('status', 'Finalizado')->get();
+        $pedidos = Vendas::where('id_user', Auth::id())->orderBy('id', 'DESC')->get();
 
         return view('site.user.historico')->with('pedidos', $pedidos);
     }

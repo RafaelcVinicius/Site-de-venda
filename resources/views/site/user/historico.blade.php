@@ -3,7 +3,7 @@
 @section('corpo')
 <div class="corpo">
 
-        <table id="table_id" class="display">
+        <table id="table_id" class="">
             <thead>                
                 <tr>
                     <th>ID</th>
@@ -11,6 +11,7 @@
                     <th>Tipo pedido</th>
                     <th>Subtotal</th>
                     <th>Data</th>
+                    <th>Status</th>
                     <th>Ação</th>
                 </tr>
             </thead>
@@ -24,9 +25,10 @@
                         {{$pedido->endereco->endereco}}
                     @endif</td>
                     <td>{{$pedido->tipopedido}}</td>
-                    <td>{{$pedido->valor}}</td>
-                    <td>{{$pedido->status}}</td>    
-                    <td>{{/*route('')*/}} </td>      
+                    <td>R$ {{$pedido->valor}}</td>
+                    <td>{{date('d/m/y - H:i', strtotime($pedido->created_at))}}</td>
+                    <td>{{$pedido->status}}</td>   
+                    <td>1</td>      
                 </tr>
                 @endforeach
             </tbody>
@@ -38,6 +40,7 @@
   
 <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
 
 <script type="text/javascript"> 
 $(document).ready( function () {

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- css -->
-    <link rel="stylesheet" href="{{ asset('css/adm/admprodutos.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/adm/admlayout.css')}}">
 
     <!-- Scripts -->
     <script src="{{ asset('js/adm.js') }}" defer></script>
@@ -35,6 +35,8 @@
         </nav>
         <button id="btn-mobile"><span id="hamburger"></span></button>
     </header>
-    @yield('corpo')
+    <div class="container"> 
+     @yield('corpo')
+    </div>
 </body>
 </html>
