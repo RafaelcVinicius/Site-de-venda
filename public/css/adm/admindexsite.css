@@ -1,4 +1,67 @@
-.index{
-    max-width: 1360px;
+.tudo{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+}
+.corpo{
+    display: flex;
+    justify-content: center;
+    max-width: 1366px;
     width: 100%;
+    flex-wrap: wrap;
+}
+.graficos{
+    display: flex;
+    justify-content: space-around;
+    max-width: 1366px;
+    width: 100%;
+}
+.graf{
+    display: flex;
+    max-width: 500px;
+    width: 100%;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 10px, 10px, 10px #ddd;
+    padding: 20px;
+
+}
+.tabela{
+    display: flex;
+    justify-content: center;
+    max-width: 1366px;
+    width: 100%;
+    margin-top: 50px;
+    font-size: 15px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 10px, 10px, 10px #ddd;
+    padding: 20px;
+}
+.tabela input{
+    border: solid 1px rgba(0, 0, 0, 0.438);
+    height: 40px;
+    font-size: 15px;
+    border-radius: 0px;
+}
+.tabela .display{
+    width: 1000px;
+    margin-top: 10px;
+}
+.display thead tr{
+    background-color: #03202E;
+    height: 60px;
+    color: white;
+
+}
+.display tbody tr{
+    height: 60px;  
+
+    
+}
+tbody{
+    border-bottom: solid 2px black;
+}
+.display tbody tr:hover{
+background-color: rgba(0, 0, 0, 0.123);    
 }

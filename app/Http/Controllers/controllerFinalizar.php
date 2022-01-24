@@ -38,7 +38,7 @@ class controllerFinalizar extends Controller
         $pedido->troco = 0.00;
       }
       else{
-        $pedido->tipopedido = 'entrega';
+        $pedido->tipopedido = 'Entrega';
         $pedido->id_endereco = $request->id_endereco; 
 
         if($request->especie == 'dinheiro' ){
