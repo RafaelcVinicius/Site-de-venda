@@ -58,9 +58,6 @@ route::prefix('/')->group(function () {
     });
     
 
-   
-
-
 
 });
 
@@ -89,6 +86,7 @@ Route::prefix('adm')->group(function () {
     route::get('/', [GerencialController::class, 'index'])->name('site');
     route::resource('/produtos', ControllerProdutos::class);
     });
+
 });
 
 

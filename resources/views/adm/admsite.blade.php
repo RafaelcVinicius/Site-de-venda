@@ -63,20 +63,42 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
+var valor = [];
+console.log(valor);
+$(function(){
+        $(function(event){              
+                $.ajax({
+                        url: "{{route('json')}}",
+                        type: "get",
+                        data: $(this).serialize(),
+                        dataType: 'json',
+                        success: function(response){
+
+                       var valorum = response[0]['valor'];
+                       var valordis = response[1]['valor'];
+                       var valortres = response[2]['valor'];
+                        valor = [valorum, valordis, valortres]
+                            console.log(valor);
+                        }
+                });
+        });
+});
+
+
     const ctx = document.getElementById('myChart').getContext('2d');
     const myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ["<?php echo date('d/M/', strtotime($g[2]->date)) ?>", "<?php echo date('d/M/', strtotime($g[1]->date)) ?>", "<?php echo date('d/M/', strtotime($g[2]->date)) ?>"],
+            labels: ['A', 'B', 'C'],            
             datasets: [{
-                label: 'desativar',
-                data: ["<?php echo $g[0]->valor ?>", "<?php echo $g[1]->valor ?>", "<?php echo $g[2]->valor ?>"],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
+                label: 'Texto',
+               data: 'valor',
+                backgroundColor: [                    
                     'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',                    
+                    'rgba(255, 99, 132, 0.2)',
                     'rgba(153, 102, 255, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
                     'rgba(255, 159, 64, 0.2)'
                 ],
                 borderColor: [
@@ -98,5 +120,10 @@
             }
         }
     });
+
     </script>
+
+<script></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn" crossorigin="anonymous"></script>
+
 @endsection
