@@ -62,22 +62,22 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script>
 var valor = [];
-console.log(valor);
 $(function(){
         $(function(event){              
                 $.ajax({
-                        url: "{{route('json')}}",
+                        url: "{{route('pedidos')}}",
                         type: "get",
                         data: $(this).serialize(),
                         dataType: 'json',
                         success: function(response){
 
                        var valorum = response[0]['valor'];
-                       var valordis = response[1]['valor'];
+                       var valordois = response[1]['valor'];
                        var valortres = response[2]['valor'];
-                        valor = [valorum, valordis, valortres]
+                        valor = [valorum, valordois, valortres];
                             console.log(valor);
                         }
                 });
@@ -92,7 +92,7 @@ $(function(){
             labels: ['A', 'B', 'C'],            
             datasets: [{
                 label: 'Texto',
-               data: 'valor',
+               data: valor,
                 backgroundColor: [                    
                     'rgba(54, 162, 235, 0.2)',
                     'rgba(255, 206, 86, 0.2)',                    

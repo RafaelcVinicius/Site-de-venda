@@ -8,9 +8,18 @@ use Illuminate\Support\Facades\DB;
 
 class jsonController extends Controller
 {
- public function pedidos(){
+    public function pedidos(){
 
-    $g = Vendas::where('status', '<>', 'Cancelado')->select( DB::raw('cast(sum( valor ) as decimal(10)) as valor'),DB::raw('cast(created_at as date) as date' ) )->GROUPBY('date')->get();
-         return json_encode($g);
- }
+        $g = Vendas::where('status', '<>', 'Cancelado')->select( DB::raw('cast(sum( valor ) as decimal(10)) as valor'),DB::raw('cast(created_at as date) as date' ) )->GROUPBY('date')->get();
+            return json_encode($g);
+    }
+
+
+
+    public function produtos(Request $request){
+
+    dd($request);
+        
+    }
+
 }

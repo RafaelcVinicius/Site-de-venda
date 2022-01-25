@@ -20,19 +20,10 @@
 $(function(){
         $('form[name="pesquisa"]').submit(function(event){
                 event.preventDefault();
+                
+                alert('teste');
 
-                /*var email = $(this).find('input#email').val();
-                alert('teste'+ email);*/
-
-                $.ajax({
-                        url: "{{route('json')}}",
-                        type: "get",
-                        data: $(this).serialize(),
-                        dataType: 'json',
-                        success: function(response){
-                                console.log(response);
-                        }
-                });
+        
         });
 });
 
