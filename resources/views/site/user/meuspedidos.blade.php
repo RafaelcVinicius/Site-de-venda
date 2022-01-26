@@ -7,9 +7,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn" crossorigin="anonymous"></script>
 
 
-<form action="" name="pesquisa">
-@csrf
-<input type="text" name="email" id="email">
+<form name="pes" id="pes">
+        @csrf
+        <input type="text" name="email" id="email" />
+        <input type="text" name="senha"  id="senha" />
         <Button type="submit">Enviar</Button>
 </form>
 
@@ -18,13 +19,31 @@
 <script>
 
 $(function(){
-        $('form[name="pesquisa"]').submit(function(event){
+        $('form[name="pes"]').submit(function(event){
                 event.preventDefault();
-                
-                alert('teste');
+               
+                var email = document.getElementById('email').value;
+                var senha = document.getElementById('senha').value;
+                var dado = {      
+                'email': email,
+                'senha': senha
+                }
 
-        
+                var dados = JSON.stringify(dado);
+
+                $(function(event){              
+                $.ajax({
+                        url: "{{route('pro')}}",
+                        type: "POST",
+                        data: {dados},
+                        dataType: 'json',
+                        success: function(response){
+                                console.log(response);
+                                
+                        }
+                });
         });
+});
 });
 
 </script>

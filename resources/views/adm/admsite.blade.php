@@ -64,7 +64,8 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
-var valor = [];
+
+      var  valorum =0,  valordois = 0, valortres =0; 
 $(function(){
         $(function(event){              
                 $.ajax({
@@ -73,13 +74,9 @@ $(function(){
                         data: $(this).serialize(),
                         dataType: 'json',
                         success: function(response){
-
-                       var valorum = response[0]['valor'];
-                       var valordois = response[1]['valor'];
-                       var valortres = response[2]['valor'];
-                        valor = [valorum, valordois, valortres];
-                            console.log(valor);
+                            console.log(response);
                         }
+                        
                 });
         });
 });
@@ -92,7 +89,7 @@ $(function(){
             labels: ['A', 'B', 'C'],            
             datasets: [{
                 label: 'Texto',
-               data: valor,
+               data: [valorum,valordois, valortres],
                 backgroundColor: [                    
                     'rgba(54, 162, 235, 0.2)',
                     'rgba(255, 206, 86, 0.2)',                    

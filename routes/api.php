@@ -20,9 +20,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 route::prefix('/json')->group(function(){
+
         route::get('pedidos', [jsonController::class, 'pedidos'])->name('pedidos');
         
-        route::get('produtos', [jsonController::class, 'produtos'])->name('produtos');
+        route::POST('produtos', [jsonController::class, 'pro'])->name('pro');
 
 });
 

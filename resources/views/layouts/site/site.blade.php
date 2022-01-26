@@ -31,7 +31,7 @@
                                 <fieldset class="field">
                                     <article class="article">
                                     <input type="text" name="busca" id="busca" placeholder="O que você procura ?">
-                                    <Button type="submit" class="btn-busca"><svg class="svg" width="18px" height="18px" viewBox="0 0 2117 2117"><g id="Camada_x0020_1"><path d="M1360 1499c-148,118 -330,181 -520,181 -463,0 -840,-377 -840,-840 0,-463 377,-840 840,-840 463,0 840,377 840,840 0,190 -63,372 -181,520l589 588c38,39 38,101 0,140 -19,18 -44,29 -70,29 -26,0 -51,-11 -70,-29l-588 -589zm-520 -16c355,0 643,-288 643,-643 0,-354 -288,-643 -643,-643 -354,0 -643,289 -643,643 0,355 289,643 643,643z" class="fill-main"></path></g></svg></Button>
+                                    <Button class="btn-busca"><svg class="svg" width="18px" height="18px" viewBox="0 0 2117 2117"><g id="Camada_x0020_1"><path d="M1360 1499c-148,118 -330,181 -520,181 -463,0 -840,-377 -840,-840 0,-463 377,-840 840,-840 463,0 840,377 840,840 0,190 -63,372 -181,520l589 588c38,39 38,101 0,140 -19,18 -44,29 -70,29 -26,0 -51,-11 -70,-29l-588 -589zm-520 -16c355,0 643,-288 643,-643 0,-354 -288,-643 -643,-643 -354,0 -643,289 -643,643 0,355 289,643 643,643z" class="fill-main"></path></g></svg></Button>
                                     </article>
                                 </fieldset>
                             </form>
@@ -79,23 +79,9 @@
         </div>
         <footer class="footer">
                 <div class="rodape">
-                    <form action="" name="pesquisa">
-                        @csrf
-                        <input type="text" name="email" id="email">
-                                <Button type="submit">Enviar</Button>
-                        </form>
+                   
+                        
                 </div>
         </footer>
-
-<script>
-            
-    $(function(){
-        $('form[name="pesquisa"]').submit(function(event){
-                event.preventDefault();
-                
-                alert('teste');        
-        });
-    });
-</script>
 </body>
 </html>
