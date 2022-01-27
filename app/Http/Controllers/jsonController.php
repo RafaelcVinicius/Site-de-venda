@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Produtos;
 use App\Models\Temp;
 use App\Models\Vendas;
 use Illuminate\Http\Request;
@@ -13,11 +14,13 @@ class jsonController extends Controller
 
     public function pro(Request $request){
        
-        $temp = new Temp();
+       /* $temp = new Temp();
         $temp->camp1 = $request->email;
-        $temp->save();
+        $temp->save();*/
 
-        echo json_encode($request);    
+        $temp = Produtos::where('nome', 'like', '%'.$request->email.'%')->get();
+
+        echo json_encode($temp);    
  
     }
 

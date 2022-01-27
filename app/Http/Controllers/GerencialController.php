@@ -16,9 +16,12 @@ class GerencialController extends Controller
 
          $pedidos = Vendas::get();
 
-       $g = Vendas::where('status', '<>', 'Cancelado')->select( DB::raw('cast(sum( valor ) as decimal(10)) as valor'),DB::raw('cast(created_at as date) as date' ) )->GROUPBY('date')->get();
-        
-        return view('adm.admsite')->with('pedidos', $pedidos)->with('g', $g);
+       $tudo = Vendas::where('status', '<>', 'Cancelado')->select( DB::raw('cast(sum( valor ) as decimal(10)) as valor'))->get();
+       //$mes = Vendas::where('status', '<>', 'Cancelado')->where(DB::raw('MONTH(created_at)','=', date('m'))->where(DB::raw('YEAR(created_at)','=', date('Y')))->select( DB::raw('cast(sum( valor ) as decimal(10)) as valor'))->get();
+    $mes = Vendas::select(DB::raw('SELECT SUM(valor) FROM vendas WHERE MONTH(created_at) = 1 and YEAR(created_at) = 2022'));
+DD($mes);
+
+       // return view('adm.admsite')->with('pedidos', $pedidos)->with('$tudo', $tudo);
 
     }
 

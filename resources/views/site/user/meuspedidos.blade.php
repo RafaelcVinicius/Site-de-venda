@@ -19,8 +19,8 @@
 <script>
 
 $(function(){
-        $('form[name="pes"]').submit(function(event){
-                event.preventDefault();     
+        $('form[name="pes"]').keydown(function(){
+    
                 $.ajax({
                         url: "{{route('pro')}}",
                         type: "POST",

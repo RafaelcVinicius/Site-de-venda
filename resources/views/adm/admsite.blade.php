@@ -63,33 +63,30 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script>
+<script>
 
-      var  valorum =0,  valordois = 0, valortres =0; 
 $(function(){
-        $(function(event){              
-                $.ajax({
-                        url: "{{route('pedidos')}}",
-                        type: "get",
-                        data: $(this).serialize(),
-                        dataType: 'json',
-                        success: function(response){
-                            console.log(response);
-                        }
-                        
-                });
+        $.ajax({
+                url: "{{route('pedidos')}}",
+                type: "get",
+                data: $(this).serialize(),
+                dataType: 'json',
+                success: function(response){
+                    console.log(response);
+                }
+              
         });
 });
 
-
+console.log(valorum);
     const ctx = document.getElementById('myChart').getContext('2d');
     const myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['A', 'B', 'C'],            
+            labels: ["<?php echo date('d/M/', strtotime($g[2]->date)) ?>", "<?php echo date('d/M/', strtotime($g[1]->date)) ?>", "Vendas Totais"],        
             datasets: [{
                 label: 'Texto',
-               data: [valorum,valordois, valortres],
+                data: ["<?php echo $g[0]->valor ?>", "<?php echo $g[1]->valor ?>", "<?php echo $tudo ?>"],
                 backgroundColor: [                    
                     'rgba(54, 162, 235, 0.2)',
                     'rgba(255, 206, 86, 0.2)',                    
