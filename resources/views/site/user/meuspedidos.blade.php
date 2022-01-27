@@ -20,30 +20,18 @@
 
 $(function(){
         $('form[name="pes"]').submit(function(event){
-                event.preventDefault();
-               
-                var email = document.getElementById('email').value;
-                var senha = document.getElementById('senha').value;
-                var dado = {      
-                'email': email,
-                'senha': senha
-                }
-
-                var dados = JSON.stringify(dado);
-
-                $(function(event){              
+                event.preventDefault();     
                 $.ajax({
                         url: "{{route('pro')}}",
                         type: "POST",
-                        data: {dados},
+                        data: $(this).serialize(),
                         dataType: 'json',
                         success: function(response){
+
                                 console.log(response);
-                                
                         }
                 });
         });
-});
 });
 
 </script>
