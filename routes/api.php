@@ -25,5 +25,7 @@ route::prefix('/json')->group(function(){
         
         route::POST('produtos', [jsonController::class, 'pro'])->name('pro');
 
+        route::POST('comprar', [jsonController::class, 'comprar'])->name('comprar');
+
 });
 

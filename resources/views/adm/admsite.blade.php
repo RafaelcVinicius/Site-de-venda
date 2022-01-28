@@ -78,15 +78,14 @@ $(function(){
         });
 });
 
-console.log(valorum);
     const ctx = document.getElementById('myChart').getContext('2d');
     const myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ["<?php echo date('d/M/', strtotime($g[2]->date)) ?>", "<?php echo date('d/M/', strtotime($g[1]->date)) ?>", "Vendas Totais"],        
+            labels: ['Vendas do dia', 'Vendas do semana', 'Vendas do mês'],        
             datasets: [{
-                label: 'Texto',
-                data: ["<?php echo $g[0]->valor ?>", "<?php echo $g[1]->valor ?>", "<?php echo $tudo ?>"],
+                label: '# of Votes',
+                data: ["<?php echo $dia->valor ?>", "<?php echo $semana->valor ?>","<?php echo $mes->valor ?>" ],
                 backgroundColor: [                    
                     'rgba(54, 162, 235, 0.2)',
                     'rgba(255, 206, 86, 0.2)',                    

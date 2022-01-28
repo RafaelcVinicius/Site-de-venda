@@ -48,7 +48,7 @@ class vendasiteController extends Controller
     public function store(Request $request)
     {
             if($request->qtde == null){
-                return redirect()->back();
+    
             }else{
                 $db = Carrinho::where('id_user', auth::id())->where('id_produto', $request->id_produto)->where('status', 'ABERTO')->count();
                 if(empty($db)){

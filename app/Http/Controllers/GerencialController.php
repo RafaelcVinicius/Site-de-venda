@@ -13,15 +13,56 @@ class GerencialController extends Controller
         if(Session::get('nome') == null){
             return redirect()->route('view');
          }
-
+         date_default_timezone_set('America/Sao_Paulo');
+         
          $pedidos = Vendas::get();
 
-       $tudo = Vendas::where('status', '<>', 'Cancelado')->select( DB::raw('cast(sum( valor ) as decimal(10)) as valor'))->get();
-       //$mes = Vendas::where('status', '<>', 'Cancelado')->where(DB::raw('MONTH(created_at)','=', date('m'))->where(DB::raw('YEAR(created_at)','=', date('Y')))->select( DB::raw('cast(sum( valor ) as decimal(10)) as valor'))->get();
-    $mes = Vendas::select(DB::raw('SELECT SUM(valor) FROM vendas WHERE MONTH(created_at) = 1 and YEAR(created_at) = 2022'));
-DD($mes);
 
-       // return view('adm.admsite')->with('pedidos', $pedidos)->with('$tudo', $tudo);
+    // Valor do dia
+
+         $dia = DB::table('vendas')
+         ->select(DB::raw('sum(valor) as valor'))
+         ->where('status', '<>', 'Cancelado')
+         ->where('created_at', date("Y-m-d"))
+         ->first();
+
+        /* if($dia == null){
+             $dia =0;
+         }*/
+
+    // Valor semana
+
+        $semana_incio = date("Y-m-d", strtotime('-6 days' ,strtotime('Saturday this week')));   
+        $semana_final = date("Y-m-d", strtotime('Saturday this week'));
+
+        $semana = DB::table('vendas')
+        ->select(DB::raw('sum(valor) as valor'))
+        ->where('status', '<>', 'Cancelado')
+        ->whereBetween('created_at', [$semana_incio, $semana_final])
+        ->first();
+
+       /* if($dia == null){
+            $dia =0;
+        }*/
+
+    // Valor Mensal
+
+        $data_incio = mktime(0, 0, 0, date('m') , 1 , date('Y'));
+        $data_fim = mktime(23, 59, 59, date('m'), date("t"), date('Y'));
+        $data_incio = date('Y-m-d',$data_incio);
+        $data_fim = date('Y-m-d', $data_fim);
+
+        $mes = DB::table('vendas')
+        ->select(DB::raw('sum(valor) as valor'))
+        ->where('status', '<>', 'Cancelado')
+        ->whereBetween('created_at', [$data_incio, $data_fim])
+        ->first();
+
+      /*  if($dia == null){
+            $dia = 0;
+        } */
+       
+      return view('adm.admsite')->with('pedidos', $pedidos)->with('semana', $semana)->with('mes',$mes)->with('dia',$dia);;
 
     }
 

@@ -87,9 +87,6 @@ body{
     background-color: white;
     opacity: 0.65;
 }
-svg{
-    fill:rgb(100, 138, 40);
-}
 
 /* usuario logado ou não */
 .usuario{

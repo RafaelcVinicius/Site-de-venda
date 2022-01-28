@@ -21,7 +21,7 @@
                 <div>    
                     <ul class="start">
                         <div class="star">
-                            <li><a href="#">Início</a></li>
+                            <li><a href="{{route('site')}}">Início</a></li>
                             <li><a href="#">Configuração </a></li>
                          <li><a href="{{route('produtos.index')}}">Produtos</a></li>
                         </div>

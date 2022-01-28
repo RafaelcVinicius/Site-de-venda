@@ -55,4 +55,5 @@ class HomeController extends Controller
 
         return view('site.user.historico')->with('pedidos', $pedidos);
     }
+
 }
