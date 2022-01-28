@@ -9,8 +9,12 @@
 
 <form name="pes" id="pes">
         @csrf
-        <input type="text" name="email" id="email" />
-        <input type="text" name="senha"  id="senha" />
+        <Fieldset>
+                <input type="text" name="email" id="email" />
+                <Ul id="lista">
+
+                </Ul>
+        </Fieldset>
         <Button type="submit">Enviar</Button>
 </form>
 
@@ -19,7 +23,7 @@
 <script>
 
 $(function(){
-        $('form[name="pes"]').keydown(function(){
+        $('form[name="pes"]').keyup(function(){
     
                 $.ajax({
                         url: "{{route('pro')}}",
@@ -27,6 +31,19 @@ $(function(){
                         data: $(this).serialize(),
                         dataType: 'json',
                         success: function(response){
+                               document.getElementById('lista').innerHTML = '';
+
+
+                                $.each(response, function(i, val){
+
+                                var dados =  '<li>'+ val.nome+'</li>'
+                                var lista = document.getElementById('lista').innerHTML;
+
+                                 lista = lista + "<li>" + dados + "</li>";
+                                 
+                                document.getElementById('lista').innerHTML = lista;
+                                 });
+ 
 
                                 console.log(response);
                         }
