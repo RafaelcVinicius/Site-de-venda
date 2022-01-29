@@ -2,9 +2,9 @@ a{
     text-decoration: none;
 }
 .layout{
-display: flex;
-justify-content: center;
-flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 .todos{
     max-width: 1366px;

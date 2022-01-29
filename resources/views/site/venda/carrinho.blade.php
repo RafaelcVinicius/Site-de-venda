@@ -1,3 +1,5 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="{{asset('css/site/sitecarrinho.css')}}">
 @extends('layouts.site.site')
 @section('corpo')
@@ -11,37 +13,41 @@
            @if (count($vendas) > 0)
                 @foreach ($vendas as $venda)
                 <article class="artic">
-                    <a href="{{route('produto', $venda->produto->nome)}}">
-                        <div class="item">
-                                <div class="foto-pro">
+                    <div class="item">
+                        <a href="{{route('produto', $venda->produto->nome)}}">
+                            <div class="foto-pro">
 
-                                    @if (!empty($venda->produto->imagem->path))
-                                
-                                        <img src="{{ asset('storage/'.$venda->produto->imagem->path)}}" alt="">
-                                    @else
-                                        img
-                                    @endif               
+                                @if (!empty($venda->produto->imagem->path))
+                            
+                                    <img src="{{ asset('storage/'.$venda->produto->imagem->path)}}" alt="">
+                                @else
+                                    img
+                                @endif               
 
-                                </div>
+                            </div>
 
-                                 <div 
-                                    class="nome">{{$venda->produto->nome}}
-                                </div>
                                 <div 
-                                    class="qtde">{{$venda->qtde}}
-                                </div>
-                                <div 
-                                    class="subtotal">R$ {{$venda->valor}}
-                                </div>
-                                <div class="exluir">
-                                    <form action="{{route('carrinho.destroy', $venda->id)}}" method="post">
-                                        @csrf        
-                                        @method('DELETE')                      
-                                        <button>Excluir</button>
-                                    </form>
-                                </div>
-                        </div>
-                    </a>
+                                class="nome">{{$venda->produto->nome}}
+                            </div>
+                        </a>        
+                            <div class="qtde">                                    
+                                <input type="text" id="qtde" name="{{$venda->produto->id}}" value="{{$venda->qtde}}">
+                                <input type="hidden" id="id_produto" value="{{$venda->produto->id}}">
+                                <input type="hidden" id="id_user" value="{{Auth::user()->id}}">
+                                <i class="right"><svg viewBox="0 0 345 345" width="10px" height="10px"><g id="Camada_x0020_1"><polygon points="195,88 195,149 274,149 345,149 345,172 345,195 274,195 195,195 195,257 195,345 149,345 149,345 149,257 149,195 70,195 0,195 0,172 0,149 70,149 149,149 149,88 149,0 149,0 195,0 " class="fill-gray"></polygon></g></svg></i>                            
+                                <i  class="left"><svg viewBox="0 0 185 25" width="10px" height="10px"><g id="Camada_x0020_1"><polygon points="147,0 185,0 185,12 185,25 147,25 118,25 67,25 38,25 0,25 0,12 0,0 38,0 " class="fill-gray"></polygon></g></svg></i>
+                            </div>
+                            <div 
+                                class="subtotal">R$ {{$venda->valor}}
+                            </div>
+                            <div class="exluir">
+                                <form action="{{route('carrinho.destroy', $venda->id)}}" method="post">
+                                    @csrf        
+                                    @method('DELETE')                      
+                                    <button>Excluir</button>
+                                </form>
+                            </div>
+                    </div>                    
                 </article>
                 @endforeach
             </div>
@@ -57,4 +63,47 @@
             @endif
      </div>
  </Div>
+
+ <script>
+
+    $(function(){
+        $(".left").on("click",function (){
+        alert("FUNCIONOU");
+                    });
+        
+                    /*$.ajax({
+                            url: "{{route('pro')}}",
+                            type: "POST",
+                            data: $(this).serialize(),
+                            dataType: 'json',
+                            success: function(response){
+                                 
+
+                                    console.log(response);
+                            }
+                    });*/
+            });
+
+    $(function(){
+        $(".right").on("click",function (){
+                           
+            $.ajax({
+                url: "{{route('qtdecarrinho')}}",
+                type: "POST",
+                data: { id_user: $('#id_user').val(),
+                        id_produto: $('#id_produto').val(),
+                        qtde: +1},           
+                dataType: 'json',
+                success: function(response){  
+                                      
+                        console.log(response);
+                }
+            });  
+        });
+    });
+    
+    </script>
+    
+
+
 @endsection

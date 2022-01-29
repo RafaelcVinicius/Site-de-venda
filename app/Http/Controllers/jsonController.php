@@ -42,6 +42,7 @@ class jsonController extends Controller
         if($request->id_user == null){
             $carrinho['Success'] = false;
             return json_encode($carrinho);
+
         }else{
             $db = Carrinho::where('id_user', $request->id_user)->where('id_produto', $request->id_produto)->where('status', 'ABERTO')->count();
             if(empty($db)){
@@ -61,12 +62,29 @@ class jsonController extends Controller
                 $venda->valor = ($db->qtde + $request->qtde) * $request->valor_un;
                 $venda->save();
             }
-                $qtd = Carrinho::where('id_user', auth::id())->count();
-                return json_encode($qtd);
+                
+                $qtde = $qtde = Carrinho::where('id_user', $request->id_user)->select(DB::raw('cast(sum( qtde ) as decimal(10)) as qtde'))->first();
+                return json_encode($qtde);
 
         }
 
-        
+
+    }
+
+    public function consultacar(Request $request){
+        $qtde = Carrinho::where('id_user', $request->id_user)->select(DB::raw('cast(sum( qtde ) as decimal(10)) as qtde'))->first();
+        return json_encode($qtde);
+    }
+
+    public function qtdecarrinho(Request $request){
+
+        $produto = Carrinho::where('id_user', $request->id_user)->where('id_produto', $request->id_produto)->first();
+        $produto->qtde = ($produto->qtde)+($request->qtde);
+        $produto->save();
+
+        $produto = Carrinho::where('id_user', $request->id_user)->where('id_produto', $request->id_produto)->first();
+
+        return json_encode($produto->qtde);
     }
 
 }

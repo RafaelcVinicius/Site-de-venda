@@ -31,6 +31,7 @@
                                     CEP: 89700-168</span>
                             </div>
                             <div id="enderecocliente" class="desativado">
+                                <a class="criar-en" href="{{route('endereco.create')}}">Adicionar endereço de entrega</a>
                                 @foreach ($enderecos as $endereco)                               
                                 <Div class="endereco" id="ende" id="endereco-{{$endereco->id}}">
                                     <input type="radio" onclick="endereco({{$endereco->id}})" name="radio" id="{{$endereco->id}}">

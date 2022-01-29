@@ -15,12 +15,25 @@
     </div>
 
     <div class="dados">
-        <h5>Endereço</h5>
+        <div class="ende-header">
+            <h5>Endereço</h5>
+            <a class="criar-en" href="{{route('endereco.create')}}">Adicionar endereço de entrega</a>
+        </div>
         <div class="endereco"> 
             @foreach ($enderecos as $endereco)
-            <div class="pequeno">ID: {{$endereco->id}}</div>
-            <div class="grande"> Endereço: {{$endereco->endereco}}</div>
-            <div class="medio"> CEP: {{$endereco->cep}}</div> 
+            <div class="dados-endereco">
+                <div class="info-endereco">
+                    <div class="nome-en">Nome: {{$endereco->nome}}</div>
+                    <div class="dados-en"> Endereço: {{$endereco->endereco}}</div>
+                    <div class="dados-en"> CEP: {{$endereco->cep}}</div> 
+                </div>
+                <div>
+                    <div class="btn-s">
+                        <a class="del" href="">Deletar</a>
+                        <a class="Alt" href="">Alterar</a>
+                    </div>
+                </div>
+            </div>
             @endforeach
         </div>
     </div>

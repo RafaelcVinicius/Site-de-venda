@@ -70,7 +70,7 @@ $(function(){
                         if(response.Success == false){
                             window.location.href = "{{route('login')}}"
                         }else{
-                            
+                            $('#qtde-venda').html(response.qtde);
                         }
 
                             console.log(response);

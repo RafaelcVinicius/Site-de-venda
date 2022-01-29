@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div class="dados">
-                    <div class="nome">{{$produto['nome']}}</div>
+                    
                     <div class="v-q">
                         <div class="valor">R$ {{$produto['valor']}}</div>
                         <div class="qtde-disponivel">Qtde Disponível: {{$produto['qtde']}}</div>

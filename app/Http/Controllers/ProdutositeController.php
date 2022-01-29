@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 class ProdutositeController extends Controller
 {
 
-    public function index(){
-        $produtos = Produtos::get();
-        return view('site.produtos.produtos')->with('produtos', $produtos);
+    public function index(Request $request){
+        $produtos = Produtos::where('nome', 'like', '%'.$request->busca.'%')->get();
+       return view('site.produtos.produtos')->with('produtos', $produtos);
     }
 
     public function produto($nome){
@@ -20,4 +20,6 @@ class ProdutositeController extends Controller
         return view('site.produtos.produto')->with('produto', $produto);
 
     }
+
+    
 }

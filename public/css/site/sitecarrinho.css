@@ -54,7 +54,7 @@ a{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 800px;
+    max-width: 250px;
     width: 100%;
     height: 120px;
     border-radius:15px;
@@ -90,7 +90,44 @@ a{
     border-bottom-left-radius: 15px;
     border-top-left-radius: 15px;
 }
+.qtde{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100px;
+    width: 100%;
+    height: 50px;
+    border:solid 1px rgba(0, 0, 0, 0.589);
+    border-radius: 5px;
+    position: relative;
+}
+.qtde input{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:none;
+}
+.left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    width: 30px;
+    height: 50px;
+}
+.right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    width: 30px;
+    height: 50px;
 
+}
 .exluir button{
     height: 50px;
     width: 50px;

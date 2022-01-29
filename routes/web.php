@@ -47,6 +47,7 @@ route::prefix('/')->group(function () {
     route::prefix('produto')->group(function () {
         route::get('/', [ProdutositeController::class, 'index'])->name('produtos');
         route::get('/{nome}', [ProdutositeController::class, 'produto'])->name('produto');
+
     });
 
     route::resource('/carrinho', vendasiteController::class);

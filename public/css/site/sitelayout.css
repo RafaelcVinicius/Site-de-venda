@@ -23,9 +23,14 @@ body{
 }
 
  /* ----------- barra superior --------- */
+ 
 .menu{
     display: flex;
     justify-content: center;
+    width: 100Vw;
+    position: fixed;
+    background-color: #F5EEEE;
+    z-index: 100;
 }
 
 .h{
@@ -170,8 +175,9 @@ body{
     align-items: center;
 }
 
-.car strong{
+.car #qtde-venda{
     font-size: 28px;
+    font-weight: bold;
     color:rgb(122, 167, 52);
 }
 .fill{
@@ -186,7 +192,11 @@ body{
     justify-content: center;
     align-items: center;
     height: 45px;
+    width: 100Vw;
     background-color: rgb(151, 202, 69);
+    position: absolute;
+    top: 110px;
+
 }
 .nav-ul{
     display: flex;  
@@ -228,4 +238,5 @@ body{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 155px;
 }
