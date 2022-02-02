@@ -33,3 +33,10 @@ route::prefix('/json')->group(function(){
     
 });
 
+route::get('user/{nome}', function($nome){
+echo "seu nome é ".$nome;
+});
+
+route::get('user/{id}', function($id){
+ echo "seu Id é ".$id;
+})->where('id', '[0-9]+');

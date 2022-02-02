@@ -31,11 +31,10 @@
                             </div>
                         </a>        
                             <div class="qtde">                                    
-                                <input type="text" id="qtde" name="{{$venda->produto->id}}" value="{{$venda->qtde}}">
-                                <input type="hidden" id="id_produto" value="{{$venda->produto->id}}">
+                                <input type="text" id="qtde-{{$venda->produto->id}}" value="{{$venda->qtde}}">
                                 <input type="hidden" id="id_user" value="{{Auth::user()->id}}">
-                                <i class="right"><svg viewBox="0 0 345 345" width="10px" height="10px"><g id="Camada_x0020_1"><polygon points="195,88 195,149 274,149 345,149 345,172 345,195 274,195 195,195 195,257 195,345 149,345 149,345 149,257 149,195 70,195 0,195 0,172 0,149 70,149 149,149 149,88 149,0 149,0 195,0 " class="fill-gray"></polygon></g></svg></i>                            
-                                <i  class="left"><svg viewBox="0 0 185 25" width="10px" height="10px"><g id="Camada_x0020_1"><polygon points="147,0 185,0 185,12 185,25 147,25 118,25 67,25 38,25 0,25 0,12 0,0 38,0 " class="fill-gray"></polygon></g></svg></i>
+                                <i class="right"><input type="hidden" id="id_produto" value="{{$venda->produto->id}}"><svg viewBox="0 0 345 345" width="10px" height="10px"><g id="Camada_x0020_1"><polygon points="195,88 195,149 274,149 345,149 345,172 345,195 274,195 195,195 195,257 195,345 149,345 149,345 149,257 149,195 70,195 0,195 0,172 0,149 70,149 149,149 149,88 149,0 149,0 195,0 " class="fill-gray"></polygon></g></svg></i>                            
+                                <i  class="left"><input type="hidden" id="id_produto" value="{{$venda->produto->id}}"><svg viewBox="0 0 185 25" width="10px" height="10px"><g id="Camada_x0020_1"><polygon points="147,0 185,0 185,12 185,25 147,25 118,25 67,25 38,25 0,25 0,12 0,0 38,0 " class="fill-gray"></polygon></g></svg></i>
                             </div>
                             <div 
                                 class="subtotal">R$ {{$venda->valor}}
@@ -66,42 +65,90 @@
 
  <script>
 
-    $(function(){
-        $(".left").on("click",function (){
-        alert("FUNCIONOU");
-                    });
-        
-                    /*$.ajax({
-                            url: "{{route('pro')}}",
-                            type: "POST",
-                            data: $(this).serialize(),
-                            dataType: 'json',
-                            success: function(response){
-                                 
 
-                                    console.log(response);
-                            }
-                    });*/
-            });
 
-    $(function(){
-        $(".right").on("click",function (){
-                           
-            $.ajax({
+$(function(){
+    $(".right").on("click", function (){
+
+     var id =   $(this).find('input#id_produto').val();
+
+        $.ajax({
                 url: "{{route('qtdecarrinho')}}",
                 type: "POST",
                 data: { id_user: $('#id_user').val(),
-                        id_produto: $('#id_produto').val(),
+                        id_produto: id,
                         qtde: +1},           
                 dataType: 'json',
                 success: function(response){  
-                                      
-                        console.log(response);
-                }
-            });  
+
+                    document.getElementById('qtde-'+id).value = response;             
+                            console.log(response);
+                    }
+              
         });
+
+        $(function(){            
+                    $.ajax({
+                            url: "{{route('consultacar')}}",
+                            type: "POST",
+                            data: {id_user: $('#id_user').val()},
+                            dataType: 'json',
+                            success: function(response){           
+                                if(response.qtde == null){
+                                    $('#qtde-venda').html(0);
+                                }else{
+                                    $('#qtde-venda').html(response.qtde);
+                                }
+                            
+                                    console.log(response);
+                            }
+                    });
+            });
     });
-    
+});
+
+
+$(function(){
+    $(".left").on("click", function (){
+
+     var id =   $(this).find('input#id_produto').val();
+
+        $.ajax({
+                url: "{{route('qtdecarrinho')}}",
+                type: "POST",
+                data: { id_user: $('#id_user').val(),
+                        id_produto: id,
+                        qtde: -1},           
+                dataType: 'json',
+                success: function(response){  
+                    document.getElementById('qtde-'+id).value = response;   
+                            console.log(response);
+                    }
+              
+        });
+
+
+        $(function(){            
+                    $.ajax({
+                            url: "{{route('consultacar')}}",
+                            type: "POST",
+                            data: {id_user: $('#id_user').val()},
+                            dataType: 'json',
+                            success: function(response){           
+                                if(response.qtde == null){
+                                    $('#qtde-venda').html(0);
+                                }else{
+                                    $('#qtde-venda').html(response.qtde);
+                                }
+                            
+                                    console.log(response);
+                            }
+                    });
+            });
+    });
+});
+
+
     </script>
     
 

@@ -85,7 +85,7 @@ $(function(){
             labels: ['Vendas do dia', 'Vendas do semana', 'Vendas do mês'],        
             datasets: [{
                 label: '# of Votes',
-                data: ["<?php echo $dia->valor ?>", "<?php echo $semana->valor ?>","<?php echo $mes->valor ?>" ],
+                data: [250, 580,"<?php echo $mes->valor ?>" ],
                 backgroundColor: [                    
                     'rgba(54, 162, 235, 0.2)',
                     'rgba(255, 206, 86, 0.2)',                    
