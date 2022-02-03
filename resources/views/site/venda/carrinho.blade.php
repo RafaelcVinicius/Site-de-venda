@@ -34,8 +34,8 @@
                                 <span data-controle="{{$venda->produto->id}}" class="qtde-produto" > {{$venda->qtde}} </span>
 
                                 <input type="hidden" id="id_user" value="{{Auth::user()->id}}">
-                                <i class="right"><input type="hidden" id="id_produto" value="{{$venda->produto->id}}"><svg viewBox="0 0 345 345" width="10px" height="10px"><g id="Camada_x0020_1"><polygon points="195,88 195,149 274,149 345,149 345,172 345,195 274,195 195,195 195,257 195,345 149,345 149,345 149,257 149,195 70,195 0,195 0,172 0,149 70,149 149,149 149,88 149,0 149,0 195,0 " class="fill-gray"></polygon></g></svg></i>                            
-                                <i  class="left"><input type="hidden" id="id_produto" value="{{$venda->produto->id}}"><svg viewBox="0 0 185 25" width="10px" height="10px"><g id="Camada_x0020_1"><polygon points="147,0 185,0 185,12 185,25 147,25 118,25 67,25 38,25 0,25 0,12 0,0 38,0 " class="fill-gray"></polygon></g></svg></i>
+                                <i class="right" data-controle="{{$venda->produto->id}}" data-value="5"><input type="hidden" id="id_produto" value="{{$venda->produto->id}}"><svg viewBox="0 0 345 345" width="10px" height="10px"><g id="Camada_x0020_1"><polygon points="195,88 195,149 274,149 345,149 345,172 345,195 274,195 195,195 195,257 195,345 149,345 149,345 149,257 149,195 70,195 0,195 0,172 0,149 70,149 149,149 149,88 149,0 149,0 195,0 " class="fill-gray"></polygon></g></svg></i>                            
+                                <i  class="left" ><input type="hidden" id="id_produto" value="{{$venda->produto->id}}"><svg viewBox="0 0 185 25" width="10px" height="10px"><g id="Camada_x0020_1"><polygon points="147,0 185,0 185,12 185,25 147,25 118,25 67,25 38,25 0,25 0,12 0,0 38,0 " class="fill-gray"></polygon></g></svg></i>
                             </div>
                             <div 
                                 class="subtotal">R$ {{$venda->valor}}
@@ -65,10 +65,20 @@
  </Div>
 
  <script>
-
-
-
 $(function(){
+    $(".right").on("click", function (){
+
+
+   //var teste = document.querySelectorAll(".right");
+
+   var teste = document.querySelector('.right[data-controle="'+1+'"]').getAttribute('data-value');
+
+    console.log(teste);
+});
+});
+
+
+/*$(function(){
     $(".right").on("click", function (){
 
      var id =   $(this).find('input#id_produto').val();
@@ -82,7 +92,9 @@ $(function(){
                 dataType: 'json',
                 success: function(response){  
 
-                    document.querySelector(".qtde-produto[data-controle='"+codproduto+"']")  
+                    document.querySelector("#login").dataset.controle  = 2;
+
+                    document.querySelector(".qtde-produto[data-controle="+codproduto+"]")
 
                             console.log(response);
                     }
@@ -150,7 +162,7 @@ $(function(){
     });
 });
 
-
+*/
     </script>
     
 
