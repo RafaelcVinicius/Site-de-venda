@@ -20,6 +20,11 @@
 
 <div id="dados"> aqui</div>
 
+<span data-controle="{{$venda->produto->id}}" ></span>
+<i class="right" data-controle="{{$venda->produto->id}}" data-value="5">
+
+
+
 <script>
 
 $(function(){

@@ -71,7 +71,7 @@ $(function(){
 
    //var teste = document.querySelectorAll(".right");
 
-   var teste = document.querySelector('.right[data-controle="'+1+'"]').getAttribute('data-value');
+   document.querySelector('.right[data-controle="'+1+'"]').HTMLgetAttribute('data-value');
 
     console.log(teste);
 });
